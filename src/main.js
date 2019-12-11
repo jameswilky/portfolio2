@@ -71,17 +71,9 @@ const thumbnails = document.querySelector("[type=thumbnailList]");
 const slides = document.querySelectorAll("[type=slide]");
 // Helpers
 const nameIsValid = (name) => name && Object.values(ProjectNames).includes(name);
-// Handle image resize events
-window.addEventListener("resize", () => {
-    const pageWidth = window.innerWidth;
-    const pageHeight = window.innerHeight;
-    console.log("page", pageWidth, pageHeight);
-    const image = document.querySelector("img[type=desktop]");
-    // height = 850, width = 1900
-    if (image) {
-        const imageWidth = image.offsetWidth;
-        const imageHeight = image.offsetHeight;
-        console.log("image", imageWidth, imageHeight);
-        console.log("difference", pageWidth / imageWidth);
-    }
-});
+// Set scaling for desktop image
+const image = document.querySelector("img[type=desktop]");
+if (image) {
+    // 0.4 comes from the face that width of slide is reduced to 40%
+    document.documentElement.style.setProperty("--scale", `${window.innerHeight / (0.4 * image.offsetHeight)}`);
+}

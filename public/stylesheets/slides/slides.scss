@@ -17,10 +17,9 @@ div[type="slide"] {
 
 div[type="slide"] > div[type="container"].collapsed {
   width: 40%;
-  height: 80%;
 
   & img[type="desktop"] {
-    height: 100%;
+    transform: scaleY(var(--scale));
   }
 
   & [type="overlay"] {
@@ -49,14 +48,14 @@ div[type="slide"] > div[type="container"] {
     }
   }
   & img[type="desktop"] {
-    transition: width 1s, height 1s;
+    transition: width 1s, transform 1s;
     padding: 2.5%;
     width: 100%;
 
     // Manually adjust with JS
     // height: var(--desktopImageHeight);
-    // max-height: 850px;
-    // max-height: 1900px;
+    max-height: 850px;
+    max-height: 1900px;
     object-fit: fill;
   }
 

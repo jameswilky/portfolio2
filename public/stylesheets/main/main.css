@@ -7,6 +7,7 @@
 
 :root {
   --desktopImageHeight: 850px;
+  --scale: 3.7;
 }
 
 body {
@@ -92,10 +93,9 @@ div[type=slide] * {
 
 div[type=slide] > div[type=container].collapsed {
   width: 40%;
-  height: 80%;
 }
 div[type=slide] > div[type=container].collapsed img[type=desktop] {
-  height: 100%;
+  transform: scaleY(var(--scale));
 }
 div[type=slide] > div[type=container].collapsed [type=overlay] {
   visibility: hidden;
@@ -117,9 +117,11 @@ div[type=slide] > div[type=container]:hover [type=overlay] {
   opacity: 1;
 }
 div[type=slide] > div[type=container] img[type=desktop] {
-  transition: width 1s, height 1s;
+  transition: width 1s, transform 1s;
   padding: 2.5%;
   width: 100%;
+  max-height: 850px;
+  max-height: 1900px;
   object-fit: fill;
 }
 div[type=slide] > div[type=container] [type=overlay] {

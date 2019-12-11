@@ -102,20 +102,13 @@ const slides: NodeListOf<HTMLElement> = document.querySelectorAll(
 const nameIsValid = (name: string | null) =>
   name && (<any>Object).values(ProjectNames).includes(name);
 
-// Handle image resize events
+// Set scaling for desktop image
+const image: HTMLElement | null = document.querySelector("img[type=desktop]");
 
-window.addEventListener("resize", () => {
-  const pageWidth = window.innerWidth;
-  const pageHeight = window.innerHeight;
-  console.log("page", pageWidth, pageHeight);
-  const image: HTMLElement | null = document.querySelector("img[type=desktop]");
-
-  // height = 850, width = 1900
-  if (image) {
-    const imageWidth = image.offsetWidth;
-    const imageHeight = image.offsetHeight;
-    console.log("image", imageWidth, imageHeight);
-
-    console.log("difference", pageWidth / imageWidth);
-  }
-});
+if (image) {
+  // 0.4 comes from the face that width of slide is reduced to 40%
+  document.documentElement.style.setProperty(
+    "--scale",
+    `${window.innerHeight / (0.4 * image.offsetHeight)}`
+  );
+}
