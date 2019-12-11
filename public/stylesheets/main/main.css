@@ -1,0 +1,188 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --desktopImageHeight: 850px;
+}
+
+body {
+  background: linear-gradient(to bottom, #9d50bb, #6e48aa);
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+}
+body [type=sidebar] {
+  background: rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+ul[type=thumbnailList] > li[project=airplayer] {
+  background: linear-gradient(to top left, #f2b693, #f2a2b0);
+}
+ul[type=thumbnailList] > li[project=mosaicify] {
+  background: linear-gradient(to right bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+ul[type=thumbnailList] > li[project=notflix] {
+  background: #e50914;
+}
+ul[type=thumbnailList] > li[project=ascension] {
+  color: #ffd800;
+  background: #211510;
+}
+ul[type=thumbnailList] > li[project=gitview] {
+  background: #4582ec;
+}
+ul[type=thumbnailList] > li[project=chess] {
+  background: #a87e2b;
+  background-image: linear-gradient(45deg, #ffdf9e 25%, transparent 25%), linear-gradient(-45deg, #ffdf9e 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ffdf9e 75%), linear-gradient(-45deg, transparent 75%, #ffdf9e 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+div[type=carousel] ul {
+  display: grid;
+  grid-gap: 20px;
+  padding: 20px;
+  height: 100%;
+  list-style: none;
+  grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+}
+div[type=carousel] ul li {
+  transition: all 0.4s ease-in-out;
+  color: whitesmoke;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.show[type=thumbnail] {
+  opacity: 1;
+  transform: scale(1.25);
+  box-shadow: none;
+}
+
+.hide[type=thumbnail] {
+  opacity: 0.6;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+div[type=slide] {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: opacity 0.5s;
+  justify-items: flex-start;
+  align-items: center;
+}
+div[type=slide] * {
+  transition: opacity 0.5s;
+}
+
+div[type=slide] > div[type=container].collapsed {
+  width: 40%;
+  height: 80%;
+}
+div[type=slide] > div[type=container].collapsed img[type=desktop] {
+  height: 100%;
+}
+div[type=slide] > div[type=container].collapsed [type=overlay] {
+  visibility: hidden;
+}
+
+div[type=slide] > div[type=container] {
+  position: relative;
+  display: grid;
+  height: 100%;
+  transition: width 1s, height 1s;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
+div[type=slide] > div[type=container]:hover img[type=desktop] {
+  opacity: 0.6;
+}
+div[type=slide] > div[type=container]:hover [type=overlay] {
+  opacity: 1;
+}
+div[type=slide] > div[type=container] img[type=desktop] {
+  transition: width 1s, height 1s;
+  padding: 2.5%;
+  width: 100%;
+  object-fit: fill;
+}
+div[type=slide] > div[type=container] [type=overlay] {
+  transition: top 0.5s right 0.5s;
+  position: absolute;
+  color: white;
+  text-align: center;
+  opacity: 0;
+}
+div[type=slide] > div[type=container] [type=overlay] button {
+  background: #9d50bb;
+  padding: 15px 25px;
+  font-size: 1.5rem;
+  border-radius: 90px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
+  outline: none;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  opacity: 1;
+}
+div[type=slide] > div[type=container] [type=overlay] button:active {
+  transform: translateY(3px) translateX(4px);
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.show[type=slide] {
+  opacity: 1;
+  z-index: 10;
+}
+
+.hide[type=slide] {
+  opacity: 0;
+  z-index: 0;
+}
+
+main {
+  background: rgba(255, 255, 255, 0.05);
+  margin: 20px;
+  grid-template-rows: 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+  height: calc(100% - 40px);
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+
+body {
+  background: linear-gradient(to bottom, #9d50bb, #6e48aa);
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 180px 1fr;
+  grid-template-rows: 1fr;
+  height: 100vh;
+}
+
+body [type=sidebar] {
+  background: rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+/*# sourceMappingURL=main.css.map */

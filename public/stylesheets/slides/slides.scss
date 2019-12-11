@@ -1,0 +1,100 @@
+@import "../variables/variables.scss";
+
+div[type="slide"] {
+  position: absolute;
+  background: $transparent2;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: opacity 0.5s;
+  justify-items: flex-start;
+  align-items: center;
+  & * {
+    transition: opacity 0.5s;
+  }
+}
+
+div[type="slide"] > div[type="container"].collapsed {
+  width: 40%;
+  height: 80%;
+
+  & img[type="desktop"] {
+    height: 100%;
+  }
+
+  & [type="overlay"] {
+    visibility: hidden;
+  }
+}
+
+div[type="slide"] > div[type="container"] {
+  position: relative;
+  display: grid;
+
+  height: 100%;
+  transition: width 1s, height 1s;
+
+  justify-items: center;
+  align-items: center;
+
+  width: 100%;
+  &:hover {
+    & img[type="desktop"] {
+      opacity: 0.6;
+    }
+
+    & [type="overlay"] {
+      opacity: 1;
+    }
+  }
+  & img[type="desktop"] {
+    transition: width 1s, height 1s;
+    padding: 2.5%;
+    width: 100%;
+
+    // Manually adjust with JS
+    // height: var(--desktopImageHeight);
+    // max-height: 850px;
+    // max-height: 1900px;
+    object-fit: fill;
+  }
+
+  & [type="overlay"] {
+    transition: top 0.5s right 0.5s;
+    position: absolute;
+    color: white;
+    text-align: center;
+    opacity: 0;
+
+    & button {
+      background: $primary;
+      padding: 15px 25px;
+      font-size: 1.5rem;
+      border-radius: 90px;
+      border: none;
+      cursor: pointer;
+      color: white;
+      box-shadow: 3px 4px $transparentBlack4;
+      outline: none;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      opacity: 1;
+
+      &:active {
+        transform: translateY(3px) translateX(4px);
+        box-shadow: none;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.show[type="slide"] {
+  opacity: 1;
+  z-index: 10;
+}
+
+.hide[type="slide"] {
+  opacity: 0;
+  z-index: 0;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="/public/stylesheets/main/main.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <section type="sidebar">
+      <div type="carousel">
+        <ul type="thumbnailList">
+          <li project="airplayer" class="show" type="thumbnail">
+            <h3>Airplayer</h3>
+          </li>
+          <li project="mosaicify" class="hide" type="thumbnail">
+            <h3>Mosaicify</h3>
+          </li>
+          <li project="notflix" class="hide" type="thumbnail">
+            <h3>Notflix</h3>
+          </li>
+          <li project="ascension" class="hide" type="thumbnail">
+            <h3>Ascension</h3>
+          </li>
+          <li project="gitview" class="hide" type="thumbnail">
+            <h3>Gitview</h3>
+          </li>
+          <li project="chess" class="hide" type="thumbnail">
+            <h3>Chess</h3>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <main>
+      <div type="slide" class="show" project="airplayer">
+        <div type="container">
+          <img type="desktop" src="public/images/airplayer.JPG" alt="" />
+          <div type="overlay"><button type="collapse">More Info</button></div>
+        </div>
+      </div>
+      <div type="slide" class="hide" project="mosaicify">
+        Mosaicify
+      </div>
+      <div type="slide" class="hide" project="notflix">
+        Notflix
+      </div>
+      <div type="slide" class="hide" project="ascension">
+        Ascension
+      </div>
+      <div type="slide" class="hide" project="gitview">
+        Gitview
+      </div>
+      <div type="slide" class="hide" project="chess">
+        Chess
+      </div>
+    </main>
+
+    <script src="/src/main.js"></script>
+  </body>
+</html>
