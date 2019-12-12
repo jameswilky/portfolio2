@@ -1,5 +1,6 @@
 @import "../variables/variables.scss";
 
+// Uncollapsed
 div[type="slide"] {
   position: absolute;
   display: grid;
@@ -38,6 +39,7 @@ div[type="slide"] {
     align-items: center;
 
     width: 100%;
+
     &:hover {
       & img[type="desktop"] {
         opacity: 0.6;
@@ -46,17 +48,21 @@ div[type="slide"] {
       & [type="overlay"] {
         opacity: 1;
       }
+
+      & [type="imgContainer"] {
+        opacity: 0.6;
+      }
     }
     & img[type="desktop"] {
       transition: width 0.7s, transform 0.7s, opacity 0.7s;
       transition-timing-function: ease-in-out;
-      padding: 2.5%;
+      padding: 20px;
       width: 100%;
       transform: scale(1);
       position: absolute;
       opacity: 1;
 
-      object-fit: fill;
+      object-fit: contain;
     }
 
     & img[type="mobile"] {
@@ -65,7 +71,7 @@ div[type="slide"] {
       transition-delay: 0.5s;
       transform: scale(0);
 
-      height: 85%;
+      max-height: 85%;
       object-fit: contain;
       width: 100%;
       opacity: 0;
@@ -98,10 +104,73 @@ div[type="slide"] {
         }
       }
     }
+
+    & [type="imgContainer"] {
+      transition: opacity 0.7s, transform 0.7s;
+      display: none;
+    }
+  }
+  // Tablet Only
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+    & div[type="container"] {
+      & div[type="imgContainer"] {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 20px;
+        max-width: 660px;
+        & img {
+          object-fit: contain;
+          width: 100%;
+          max-height: 190px;
+          opacity: 1;
+        }
+      }
+
+      & img[type="desktop"] {
+        position: relative;
+        width: 100%;
+        max-width: 660px;
+      }
+    }
   }
 
-  // On Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+  // Mobile only
+  @media (max-aspect-ratio: 3/4) {
+    & div[type="container"] {
+      padding: 0;
+      & [type="desktop"] {
+        display: none;
+      }
+      height: 80vh;
+      & img[type="mobile"] {
+        transition: none;
+        transform: none;
+        position: static;
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
+    & div[type="textbox"] {
+      // Extra white space at bottom for fade
+      padding: 0 15px 80px 15px;
+      z-index: 1;
+      position: static;
+      right: 0;
+      line-height: 1.6em;
+      color: white;
+      font-size: 1rem;
+      width: 100%;
+      opacity: 1;
+
+      height: 100%;
+      text-align: start;
+
+      & h2 {
+        text-align: center;
+        padding-bottom: 10px;
+      }
+    }
   }
 }
 
@@ -127,10 +196,14 @@ div[type="slide"].collapsed {
       transform: scale(1);
       opacity: 1;
     }
+
+    & div[type="imgContainer"] {
+      transform: scale(0);
+    }
   }
 }
 
-.shrink {
+[type="slide"].animationCleanUp {
   & > div[type="textbox"] {
     & * {
       transition-delay: none;

@@ -64,17 +64,21 @@ ul[type="thumbnailList"] > li {
 div[type="carousel"] ul {
   display: grid;
   grid-gap: 20px;
-  padding: 20px;
+  padding: 0 20px;
   height: 100%;
   list-style: none;
-  grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(25px, 1fr));
   width: 100%;
 
-  // On Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
-    padding: 10%;
+  // On Tablet and smaller
+  @media (max-aspect-ratio: 5/3) {
+    padding: 0 10%;
 
     grid-template-rows: repeat(6, minmax(2%, 8%));
+  }
+
+  &:first-child {
+    margin-top: 20px;
   }
 }
 
@@ -94,13 +98,13 @@ div[type="carousel"] ul {
   &::after {
     content: "" attr(project) "";
     text-transform: capitalize;
-    font-size: 1.5rem;
+    font-size: 3.8vh;
   }
-  // On Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+  // On Tablet and smaller
+  @media (max-aspect-ratio: 5/3) {
     &::after {
       content: "" attr(abrev) "";
-      font-size: 2rem;
+      font-size: 5vh;
     }
     margin: 0 10px;
   }
@@ -112,7 +116,7 @@ div[type="carousel"] ul {
   transform: scale(1.25);
   box-shadow: none;
   // On Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
     transform: scale(1.75);
   }
 }

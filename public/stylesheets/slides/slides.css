@@ -38,22 +38,25 @@ div[type=slide] div[type=container]:hover img[type=desktop] {
 div[type=slide] div[type=container]:hover [type=overlay] {
   opacity: 1;
 }
+div[type=slide] div[type=container]:hover [type=imgContainer] {
+  opacity: 0.6;
+}
 div[type=slide] div[type=container] img[type=desktop] {
   transition: width 0.7s, transform 0.7s, opacity 0.7s;
   transition-timing-function: ease-in-out;
-  padding: 2.5%;
+  padding: 20px;
   width: 100%;
   transform: scale(1);
   position: absolute;
   opacity: 1;
-  object-fit: fill;
+  object-fit: contain;
 }
 div[type=slide] div[type=container] img[type=mobile] {
   position: absolute;
   transition: transform 0.7s, opacity 0.7s;
   transition-delay: 0.5s;
   transform: scale(0);
-  height: 85%;
+  max-height: 85%;
   object-fit: contain;
   width: 100%;
   opacity: 0;
@@ -83,6 +86,63 @@ div[type=slide] div[type=container] [type=overlay] button:active {
   box-shadow: none;
   opacity: 0.7;
 }
+div[type=slide] div[type=container] [type=imgContainer] {
+  transition: opacity 0.7s, transform 0.7s;
+  display: none;
+}
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+  div[type=slide] div[type=container] div[type=imgContainer] {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    max-width: 660px;
+  }
+  div[type=slide] div[type=container] div[type=imgContainer] img {
+    object-fit: contain;
+    width: 100%;
+    max-height: 190px;
+    opacity: 1;
+  }
+  div[type=slide] div[type=container] img[type=desktop] {
+    position: relative;
+    width: 100%;
+    max-width: 660px;
+  }
+}
+@media (max-aspect-ratio: 3/4) {
+  div[type=slide] div[type=container] {
+    padding: 0;
+    height: 80vh;
+  }
+  div[type=slide] div[type=container] [type=desktop] {
+    display: none;
+  }
+  div[type=slide] div[type=container] img[type=mobile] {
+    transition: none;
+    transform: none;
+    position: static;
+    width: 100%;
+    opacity: 1;
+  }
+  div[type=slide] div[type=textbox] {
+    padding: 0 15px 80px 15px;
+    z-index: 1;
+    position: static;
+    right: 0;
+    line-height: 1.6em;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    opacity: 1;
+    height: 100%;
+    text-align: start;
+  }
+  div[type=slide] div[type=textbox] h2 {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+}
+
 div[type=slide].collapsed div[type=textbox] {
   opacity: 1;
   z-index: 5;
@@ -101,8 +161,11 @@ div[type=slide].collapsed div[type=container] img[type=mobile] {
   transform: scale(1);
   opacity: 1;
 }
+div[type=slide].collapsed div[type=container] div[type=imgContainer] {
+  transform: scale(0);
+}
 
-.shrink > div[type=textbox] * {
+[type=slide].animationCleanUp > div[type=textbox] * {
   transition-delay: none;
   transition: opacity 0.5s;
   opacity: 0;

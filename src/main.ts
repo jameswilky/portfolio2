@@ -48,11 +48,11 @@ const Project = function(name: string): IProject {
             collapsedItem.getAttribute("project") ===
               slide.getAttribute("project")
           ) {
-            slide.classList.add("shrink");
+            slide.classList.add("animationCleanUp");
           }
 
           setTimeout(() => {
-            slide.classList.remove("shrink");
+            slide.classList.remove("animationCleanUp");
           }, 2000);
 
           // Remove collapsed class from all slides

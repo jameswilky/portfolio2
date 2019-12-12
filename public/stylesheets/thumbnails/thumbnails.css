@@ -38,17 +38,20 @@ ul[type=thumbnailList] > li[project=chess] {
 div[type=carousel] ul {
   display: grid;
   grid-gap: 20px;
-  padding: 20px;
+  padding: 0 20px;
   height: 100%;
   list-style: none;
-  grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(25px, 1fr));
   width: 100%;
 }
-@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+@media (max-aspect-ratio: 5/3) {
   div[type=carousel] ul {
-    padding: 10%;
+    padding: 0 10%;
     grid-template-rows: repeat(6, minmax(2%, 8%));
   }
+}
+div[type=carousel] ul:first-child {
+  margin-top: 20px;
 }
 
 [type=thumbnail] {
@@ -65,15 +68,15 @@ div[type=carousel] ul {
 [type=thumbnail]::after {
   content: "" attr(project) "";
   text-transform: capitalize;
-  font-size: 1.5rem;
+  font-size: 3.8vh;
 }
-@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+@media (max-aspect-ratio: 5/3) {
   [type=thumbnail] {
     margin: 0 10px;
   }
   [type=thumbnail]::after {
     content: "" attr(abrev) "";
-    font-size: 2rem;
+    font-size: 5vh;
   }
 }
 
@@ -82,7 +85,7 @@ div[type=carousel] ul {
   transform: scale(1.25);
   box-shadow: none;
 }
-@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
   .show[type=thumbnail] {
     transform: scale(1.75);
   }
