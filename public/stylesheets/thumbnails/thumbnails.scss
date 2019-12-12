@@ -68,12 +68,13 @@ div[type="carousel"] ul {
   height: 100%;
   list-style: none;
   grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+  width: 100%;
 
   // On Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
     padding: 10%;
 
-    grid-template-rows: repeat(6, minmax(4%, 8%));
+    grid-template-rows: repeat(6, minmax(2%, 8%));
   }
 }
 
@@ -96,11 +97,12 @@ div[type="carousel"] ul {
     font-size: 1.5rem;
   }
   // On Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
     &::after {
       content: "" attr(abrev) "";
       font-size: 2rem;
     }
+    margin: 0 10px;
   }
 }
 
@@ -109,6 +111,10 @@ div[type="carousel"] ul {
 
   transform: scale(1.25);
   box-shadow: none;
+  // On Tablet
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+    transform: scale(1.75);
+  }
 }
 
 .hide[type="thumbnail"] {

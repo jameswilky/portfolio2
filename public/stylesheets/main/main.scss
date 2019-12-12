@@ -27,13 +27,13 @@ body {
   background: linear-gradient(to bottom, #9d50bb, #6e48aa);
   display: grid;
   overflow: hidden;
-  grid-template-columns: 15% 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: 1fr;
   height: 100vh;
 
   // On Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
-    grid-template-columns: 10% 1fr;
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+    grid-template-columns: 13% 1fr;
   }
 }
 body [type="sidebar"] {
@@ -48,8 +48,8 @@ body [type="sidebar"] {
   @media (max-aspect-ratio: 3/4) 
 
   // Tablet
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) 
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) 
 
   // Desktop
-  @media (min-aspect-ratio: 5/3) 
+  @media (min-aspect-ratio: 4/3) 
 */

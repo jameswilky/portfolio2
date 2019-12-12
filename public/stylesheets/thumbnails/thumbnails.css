@@ -42,11 +42,12 @@ div[type=carousel] ul {
   height: 100%;
   list-style: none;
   grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+  width: 100%;
 }
-@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
   div[type=carousel] ul {
     padding: 10%;
-    grid-template-rows: repeat(6, minmax(4%, 8%));
+    grid-template-rows: repeat(6, minmax(2%, 8%));
   }
 }
 
@@ -66,7 +67,10 @@ div[type=carousel] ul {
   text-transform: capitalize;
   font-size: 1.5rem;
 }
-@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+  [type=thumbnail] {
+    margin: 0 10px;
+  }
   [type=thumbnail]::after {
     content: "" attr(abrev) "";
     font-size: 2rem;
@@ -77,6 +81,11 @@ div[type=carousel] ul {
   opacity: 1;
   transform: scale(1.25);
   box-shadow: none;
+}
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 4/3) {
+  .show[type=thumbnail] {
+    transform: scale(1.75);
+  }
 }
 
 .hide[type=thumbnail] {
