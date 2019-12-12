@@ -15,7 +15,8 @@ const Project = function (name) {
     const collapseButton = document.querySelector(`[type=slide][project=${name}] [type=collapse]`);
     const init = () => {
         if (thumbnail) {
-            thumbnail.addEventListener("mouseenter", e => {
+            thumbnail.addEventListener("click", e => {
+                console.log("click");
                 if (slide) {
                     // Check if we are hovering over collapsed slide
                     const collapsedItem = document.querySelector(".collapsed");

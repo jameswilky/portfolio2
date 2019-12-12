@@ -39,7 +39,7 @@ div[type=carousel] ul {
   display: grid;
   grid-gap: 20px;
   padding: 0 20px;
-  height: 100%;
+  height: calc(100% - 40px);
   list-style: none;
   grid-template-rows: repeat(auto-fit, minmax(25px, 1fr));
   width: 100%;
@@ -64,6 +64,8 @@ div[type=carousel] ul:first-child {
   text-align: center;
   cursor: pointer;
   font-weight: 900;
+  opacity: 0.4;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 [type=thumbnail]::after {
   content: "" attr(project) "";
@@ -79,21 +81,25 @@ div[type=carousel] ul:first-child {
     font-size: 5vh;
   }
 }
-
-.show[type=thumbnail] {
-  opacity: 1;
+[type=thumbnail]:hover {
   transform: scale(1.25);
   box-shadow: none;
+}
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+  [type=thumbnail]:hover {
+    transform: scale(1.75);
+  }
+}
+
+.show[type=thumbnail] {
+  box-shadow: none;
+  opacity: 1;
+  transform: scale(1.25);
 }
 @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
   .show[type=thumbnail] {
     transform: scale(1.75);
   }
-}
-
-.hide[type=thumbnail] {
-  opacity: 0.6;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 /*# sourceMappingURL=thumbnails.css.map */

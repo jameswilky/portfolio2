@@ -6,7 +6,6 @@
 }
 :root {
   --desktopImageHeight: 850px;
-  --scale: 3.7;
 }
 
 @import "../thumbnails/thumbnails.scss";
@@ -21,13 +20,14 @@ main {
   justify-items: center;
   align-items: center;
   position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   // Mobile only
   @media (max-aspect-ratio: 3/4) {
     margin: 10px;
     height: calc(100% - 20px);
 
-    overflow-y: auto;
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   }

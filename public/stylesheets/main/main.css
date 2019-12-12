@@ -7,7 +7,6 @@
 
 :root {
   --desktopImageHeight: 850px;
-  --scale: 3.7;
 }
 
 body {
@@ -51,7 +50,7 @@ div[type=carousel] ul {
   display: grid;
   grid-gap: 20px;
   padding: 0 20px;
-  height: 100%;
+  height: calc(100% - 40px);
   list-style: none;
   grid-template-rows: repeat(auto-fit, minmax(25px, 1fr));
   width: 100%;
@@ -76,6 +75,8 @@ div[type=carousel] ul:first-child {
   text-align: center;
   cursor: pointer;
   font-weight: 900;
+  opacity: 0.4;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 [type=thumbnail]::after {
   content: "" attr(project) "";
@@ -91,21 +92,25 @@ div[type=carousel] ul:first-child {
     font-size: 5vh;
   }
 }
-
-.show[type=thumbnail] {
-  opacity: 1;
+[type=thumbnail]:hover {
   transform: scale(1.25);
   box-shadow: none;
+}
+@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+  [type=thumbnail]:hover {
+    transform: scale(1.75);
+  }
+}
+
+.show[type=thumbnail] {
+  box-shadow: none;
+  opacity: 1;
+  transform: scale(1.25);
 }
 @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
   .show[type=thumbnail] {
     transform: scale(1.75);
   }
-}
-
-.hide[type=thumbnail] {
-  opacity: 0.6;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 div[type=slide] {
@@ -119,6 +124,7 @@ div[type=slide] {
   align-items: center;
 }
 div[type=slide] div[type=textbox] {
+  display: none;
   z-index: 0;
   position: absolute;
   width: 50%;
@@ -127,11 +133,36 @@ div[type=slide] div[type=textbox] {
   line-height: 1.5em;
   text-align: left;
   color: white;
-  font-size: 3vh;
+  font-size: 1em;
   opacity: 0;
   transition: opacity 1.5s;
   transition-delay: 0.7s;
   height: 85%;
+}
+div[type=slide] div[type=textbox] [type=buttonContainer] {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+div[type=slide] div[type=textbox] [type=buttonContainer] div {
+  display: grid;
+  justify-content: center;
+}
+div[type=slide] div[type=textbox] [type=buttonContainer] div button {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.4);
+  color: white;
+  width: 120px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 90px;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+}
+div[type=slide] div[type=textbox] [type=buttonContainer] div button:hover {
+  color: black;
+  background: rgba(255, 255, 255, 0.1);
 }
 div[type=slide] div[type=container] {
   position: relative;
@@ -222,30 +253,38 @@ div[type=slide] div[type=container] [type=imgContainer] {
 @media (max-aspect-ratio: 3/4) {
   div[type=slide] div[type=container] {
     padding: 0;
-    height: 80vh;
+    display: grid;
+    height: 75vh;
   }
   div[type=slide] div[type=container] [type=desktop] {
+    display: none;
+  }
+  div[type=slide] div[type=container] [type=overlay] {
+    display: none;
+  }
+  div[type=slide] div[type=container] [type=imgContainer] {
     display: none;
   }
   div[type=slide] div[type=container] img[type=mobile] {
     transition: none;
     transform: none;
     position: static;
-    width: 100%;
+    width: 100vw;
     opacity: 1;
+    object-position: center;
   }
   div[type=slide] div[type=textbox] {
-    padding: 0 15px 80px 15px;
+    padding: 15px 35px 80px 15px;
     z-index: 1;
     position: static;
-    right: 0;
+    left: auto;
     line-height: 1.6em;
     color: white;
     font-size: 1rem;
-    width: 100%;
+    width: calc(100%);
     opacity: 1;
+    text-align: center;
     height: 100%;
-    text-align: start;
   }
   div[type=slide] div[type=textbox] h2 {
     text-align: center;
@@ -256,9 +295,15 @@ div[type=slide] div[type=container] [type=imgContainer] {
 div[type=slide].collapsed div[type=textbox] {
   opacity: 1;
   z-index: 5;
+  display: initial;
 }
 div[type=slide].collapsed div[type=container] {
   width: 40%;
+}
+@media (max-aspect-ratio: 3/4) {
+  div[type=slide].collapsed div[type=container] {
+    width: auto;
+  }
 }
 div[type=slide].collapsed div[type=container] img[type=desktop] {
   transform: scale(0);
@@ -301,12 +346,13 @@ main {
   justify-items: center;
   align-items: center;
   position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 @media (max-aspect-ratio: 3/4) {
   main {
     margin: 10px;
     height: calc(100% - 20px);
-    overflow-y: auto;
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   }

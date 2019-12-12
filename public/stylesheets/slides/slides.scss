@@ -12,6 +12,7 @@ div[type="slide"] {
   align-items: center;
 
   & div[type="textbox"] {
+    display: none;
     z-index: 0;
     position: absolute;
     width: 50%;
@@ -20,12 +21,42 @@ div[type="slide"] {
     line-height: 1.5em;
     text-align: left;
     color: white;
-    font-size: 3vh;
+    font-size: 1em;
 
     opacity: 0;
     transition: opacity 1.5s;
     transition-delay: 0.7s;
     height: 85%;
+
+    & [type="buttonContainer"] {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      & div {
+        display: grid;
+        justify-content: center;
+
+        & button {
+          cursor: pointer;
+          // pointer-events: initial;
+          background: $transparent4;
+          color: white;
+          width: 120px;
+          padding: 15px 20px;
+          font-size: 1rem;
+          border: none;
+          outline: none;
+          border-radius: 90px;
+          box-shadow: 3px 3px $transparentBlack4;
+
+          &:hover {
+            color: black;
+            background: $transparent2;
+          }
+        }
+      }
+    }
   }
 
   & div[type="container"] {
@@ -67,6 +98,7 @@ div[type="slide"] {
 
     & img[type="mobile"] {
       position: absolute;
+
       transition: transform 0.7s, opacity 0.7s;
       transition-delay: 0.5s;
       transform: scale(0);
@@ -111,6 +143,7 @@ div[type="slide"] {
     }
   }
   // Tablet Only
+
   @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
     & div[type="container"] {
       & div[type="imgContainer"] {
@@ -138,33 +171,44 @@ div[type="slide"] {
   @media (max-aspect-ratio: 3/4) {
     & div[type="container"] {
       padding: 0;
+      display: grid;
       & [type="desktop"] {
         display: none;
       }
-      height: 80vh;
+
+      & [type="overlay"] {
+        display: none;
+      }
+
+      & [type="imgContainer"] {
+        display: none;
+      }
+      height: 75vh;
       & img[type="mobile"] {
         transition: none;
         transform: none;
         position: static;
-        width: 100%;
+        width: 100vw;
         opacity: 1;
+
+        object-position: center;
       }
     }
 
     & div[type="textbox"] {
       // Extra white space at bottom for fade
-      padding: 0 15px 80px 15px;
+      padding: 15px 35px 80px 15px;
       z-index: 1;
       position: static;
-      right: 0;
+      left: auto;
       line-height: 1.6em;
       color: white;
       font-size: 1rem;
-      width: 100%;
+      width: calc(100%);
       opacity: 1;
+      text-align: center;
 
       height: 100%;
-      text-align: start;
 
       & h2 {
         text-align: center;
@@ -179,10 +223,15 @@ div[type="slide"].collapsed {
   & div[type="textbox"] {
     opacity: 1;
     z-index: 5;
+    display: initial;
   }
 
   & div[type="container"] {
     width: 40%;
+    // Mobile only
+    @media (max-aspect-ratio: 3/4) {
+      width: auto;
+    }
 
     & img[type="desktop"] {
       transform: scale(0);
