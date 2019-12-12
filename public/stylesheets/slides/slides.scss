@@ -17,8 +17,9 @@ div[type="slide"] {
     right: 20px;
     pointer-events: none;
     line-height: 1.5em;
+    text-align: left;
     color: white;
-    font-size: 1.2em;
+    font-size: 3vh;
 
     opacity: 0;
     transition: opacity 1.5s;
@@ -97,6 +98,10 @@ div[type="slide"] {
         }
       }
     }
+  }
+
+  // On Tablet
+  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
   }
 }
 
