@@ -37,8 +37,31 @@ const Project = function(name: string): IProject {
     if (thumbnail) {
       thumbnail.addEventListener("mouseenter", e => {
         if (slide) {
-          const collapsedSlide = document.querySelector(".collapsed");
-          if (collapsedSlide) collapsedSlide.classList.remove("collapsed");
+          // Check if we are hovering over collapsed slide
+          const collapsedItem: HTMLElement | null = document.querySelector(
+            ".collapsed"
+          );
+
+          // Used for cleaning up text transition
+          if (
+            collapsedItem &&
+            collapsedItem.getAttribute("project") ===
+              slide.getAttribute("project")
+          ) {
+            slide.classList.add("shrink");
+          }
+
+          setTimeout(() => {
+            slide.classList.remove("shrink");
+          }, 2000);
+
+          // Remove collapsed class from all slides
+          const slides: NodeListOf<Element> = document.querySelectorAll(
+            "[type=slide]"
+          );
+          slides.forEach(slide => slide.classList.remove("collapsed"));
+
+          // Select hovered slide
           state.select(slide, thumbnail);
         }
       });
@@ -47,8 +70,7 @@ const Project = function(name: string): IProject {
     if (collapseButton) {
       collapseButton.addEventListener("click", e => {
         if (slide) {
-          const container = slide.querySelector("[type=container]");
-          if (container) container.classList.add("collapsed");
+          slide.classList.add("collapsed");
         }
       });
     }
@@ -101,14 +123,3 @@ const slides: NodeListOf<HTMLElement> = document.querySelectorAll(
 // Helpers
 const nameIsValid = (name: string | null) =>
   name && (<any>Object).values(ProjectNames).includes(name);
-
-// Set scaling for desktop image
-const image: HTMLElement | null = document.querySelector("img[type=desktop]");
-
-if (image) {
-  // 0.4 comes from the face that width of slide is reduced to 40%
-  document.documentElement.style.setProperty(
-    "--scale",
-    `${window.innerHeight / (0.4 * image.offsetHeight)}`
-  );
-}

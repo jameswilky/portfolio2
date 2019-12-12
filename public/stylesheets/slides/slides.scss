@@ -2,7 +2,6 @@
 
 div[type="slide"] {
   position: absolute;
-  background: $transparent2;
   display: grid;
   width: 100%;
   height: 100%;
@@ -10,80 +9,128 @@ div[type="slide"] {
   transition: opacity 0.5s;
   justify-items: flex-start;
   align-items: center;
-  & * {
-    transition: opacity 0.5s;
+
+  & div[type="textbox"] {
+    z-index: 0;
+    position: absolute;
+    width: 50%;
+    right: 20px;
+    pointer-events: none;
+    line-height: 1.5em;
+    color: white;
+    font-size: 1.2em;
+
+    opacity: 0;
+    transition: opacity 1.5s;
+    transition-delay: 0.7s;
+    height: 85%;
   }
-}
 
-div[type="slide"] > div[type="container"].collapsed {
-  width: 40%;
+  & div[type="container"] {
+    position: relative;
+    display: grid;
 
-  & img[type="desktop"] {
-    transform: scaleY(var(--scale));
-  }
+    height: 100%;
+    transition: width 0.7s, height 0.7s, opacity 0.7s;
 
-  & [type="overlay"] {
-    visibility: hidden;
-  }
-}
+    justify-items: center;
+    align-items: center;
 
-div[type="slide"] > div[type="container"] {
-  position: relative;
-  display: grid;
+    width: 100%;
+    &:hover {
+      & img[type="desktop"] {
+        opacity: 0.6;
+      }
 
-  height: 100%;
-  transition: width 1s, height 1s;
-
-  justify-items: center;
-  align-items: center;
-
-  width: 100%;
-  &:hover {
+      & [type="overlay"] {
+        opacity: 1;
+      }
+    }
     & img[type="desktop"] {
-      opacity: 0.6;
+      transition: width 0.7s, transform 0.7s, opacity 0.7s;
+      transition-timing-function: ease-in-out;
+      padding: 2.5%;
+      width: 100%;
+      transform: scale(1);
+      position: absolute;
+      opacity: 1;
+
+      object-fit: fill;
+    }
+
+    & img[type="mobile"] {
+      position: absolute;
+      transition: transform 0.7s, opacity 0.7s;
+      transition-delay: 0.5s;
+      transform: scale(0);
+
+      height: 85%;
+      object-fit: contain;
+      width: 100%;
+      opacity: 0;
     }
 
     & [type="overlay"] {
+      transition: top 0.5s right 0.5s;
+      position: absolute;
+      color: white;
+      text-align: center;
+      opacity: 0;
+
+      & button {
+        background: $primary;
+        padding: 15px 25px;
+        font-size: 1.5rem;
+        border-radius: 90px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        box-shadow: 3px 4px $transparentBlack4;
+        outline: none;
+        transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+        opacity: 1;
+
+        &:active {
+          transform: translateY(3px) translateX(4px);
+          box-shadow: none;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+// Collapsed
+div[type="slide"].collapsed {
+  & div[type="textbox"] {
+    opacity: 1;
+    z-index: 5;
+  }
+
+  & div[type="container"] {
+    width: 40%;
+
+    & img[type="desktop"] {
+      transform: scale(0);
+      opacity: 0;
+    }
+    & [type="overlay"] {
+      visibility: hidden;
+    }
+
+    & img[type="mobile"] {
+      transform: scale(1);
       opacity: 1;
     }
   }
-  & img[type="desktop"] {
-    transition: width 1s, transform 1s;
-    padding: 2.5%;
-    width: 100%;
+}
 
-    // Manually adjust with JS
-    // height: var(--desktopImageHeight);
-    max-height: 850px;
-    max-height: 1900px;
-    object-fit: fill;
-  }
-
-  & [type="overlay"] {
-    transition: top 0.5s right 0.5s;
-    position: absolute;
-    color: white;
-    text-align: center;
-    opacity: 0;
-
-    & button {
-      background: $primary;
-      padding: 15px 25px;
-      font-size: 1.5rem;
-      border-radius: 90px;
-      border: none;
-      cursor: pointer;
-      color: white;
-      box-shadow: 3px 4px $transparentBlack4;
-      outline: none;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-      opacity: 1;
-
-      &:active {
-        transform: translateY(3px) translateX(4px);
-        box-shadow: none;
-        opacity: 0.7;
-      }
+.shrink {
+  & > div[type="textbox"] {
+    & * {
+      transition-delay: none;
+      transition: opacity 0.5s;
+      opacity: 0;
     }
   }
 }

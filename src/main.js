@@ -17,9 +17,21 @@ const Project = function (name) {
         if (thumbnail) {
             thumbnail.addEventListener("mouseenter", e => {
                 if (slide) {
-                    const collapsedSlide = document.querySelector(".collapsed");
-                    if (collapsedSlide)
-                        collapsedSlide.classList.remove("collapsed");
+                    // Check if we are hovering over collapsed slide
+                    const collapsedItem = document.querySelector(".collapsed");
+                    // Used for cleaning up text transition
+                    if (collapsedItem &&
+                        collapsedItem.getAttribute("project") ===
+                            slide.getAttribute("project")) {
+                        slide.classList.add("shrink");
+                    }
+                    setTimeout(() => {
+                        slide.classList.remove("shrink");
+                    }, 2000);
+                    // Remove collapsed class from all slides
+                    const slides = document.querySelectorAll("[type=slide]");
+                    slides.forEach(slide => slide.classList.remove("collapsed"));
+                    // Select hovered slide
                     state.select(slide, thumbnail);
                 }
             });
@@ -27,9 +39,7 @@ const Project = function (name) {
         if (collapseButton) {
             collapseButton.addEventListener("click", e => {
                 if (slide) {
-                    const container = slide.querySelector("[type=container]");
-                    if (container)
-                        container.classList.add("collapsed");
+                    slide.classList.add("collapsed");
                 }
             });
         }
@@ -71,9 +81,3 @@ const thumbnails = document.querySelector("[type=thumbnailList]");
 const slides = document.querySelectorAll("[type=slide]");
 // Helpers
 const nameIsValid = (name) => name && Object.values(ProjectNames).includes(name);
-// Set scaling for desktop image
-const image = document.querySelector("img[type=desktop]");
-if (image) {
-    // 0.4 comes from the face that width of slide is reduced to 40%
-    document.documentElement.style.setProperty("--scale", `${window.innerHeight / (0.4 * image.offsetHeight)}`);
-}
