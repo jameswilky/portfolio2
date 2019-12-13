@@ -9,29 +9,50 @@ var ProjectNames;
     ProjectNames["Gitview"] = "gitview";
     ProjectNames["Chess"] = "chess";
 })(ProjectNames || (ProjectNames = {}));
+//Add Sidebar scroll events for mobile
+const sidebar = document.querySelector("[type=sidebar]");
+if (sidebar) {
+    const menuOpenButton = document.querySelector("[type=hamburger]");
+    if (menuOpenButton) {
+        menuOpenButton.addEventListener("click", e => {
+            sidebar.classList.add("show");
+        });
+    }
+    const menuCloseButton = document.querySelector("[type=close]");
+    if (menuCloseButton) {
+        menuCloseButton.addEventListener("click", e => {
+            sidebar.classList.remove("show");
+        });
+    }
+}
 const Project = function (name) {
     const thumbnail = document.querySelector(`[type=thumbnail][project=${name}]`);
     const slide = document.querySelector(`[type=slide][project=${name}]`);
     const collapseButton = document.querySelector(`[type=slide][project=${name}] [type=collapse]`);
+    const cleanUpText = (slide) => {
+        const collapsedItem = document.querySelector(".collapsed");
+        // Used for cleaning up text transition
+        if (collapsedItem &&
+            collapsedItem.getAttribute("project") === slide.getAttribute("project")) {
+            slide.classList.add("animationCleanUp");
+        }
+        setTimeout(() => {
+            slide.classList.remove("animationCleanUp");
+        }, 2000);
+    };
     const init = () => {
         if (thumbnail) {
             thumbnail.addEventListener("click", e => {
-                console.log("click");
                 if (slide) {
                     // Check if we are hovering over collapsed slide
-                    const collapsedItem = document.querySelector(".collapsed");
-                    // Used for cleaning up text transition
-                    if (collapsedItem &&
-                        collapsedItem.getAttribute("project") ===
-                            slide.getAttribute("project")) {
-                        slide.classList.add("animationCleanUp");
-                    }
-                    setTimeout(() => {
-                        slide.classList.remove("animationCleanUp");
-                    }, 2000);
+                    cleanUpText(slide);
                     // Remove collapsed class from all slides
                     const slides = document.querySelectorAll("[type=slide]");
                     slides.forEach(slide => slide.classList.remove("collapsed"));
+                    // If sidebar is open on mobile, close it
+                    if (sidebar) {
+                        sidebar.classList.remove("show");
+                    }
                     // Select hovered slide
                     state.select(slide, thumbnail);
                 }
@@ -77,8 +98,13 @@ const state = {
         }
     }
 };
-// Set up Selectors
-const thumbnails = document.querySelector("[type=thumbnailList]");
-const slides = document.querySelectorAll("[type=slide]");
-// Helpers
-const nameIsValid = (name) => name && Object.values(ProjectNames).includes(name);
+// Hide all when resizing
+window.addEventListener("resize", () => {
+    const body = document.querySelector("body");
+    if (body) {
+        body.classList.add("hide");
+        setTimeout(() => {
+            body.classList.remove("hide");
+        }, 500);
+    }
+});

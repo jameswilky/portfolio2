@@ -9,10 +9,9 @@ div[type=slide] {
   align-items: center;
 }
 div[type=slide] div[type=textbox] {
-  display: none;
   z-index: 0;
   position: absolute;
-  width: 50%;
+  width: 54%;
   right: 20px;
   pointer-events: none;
   line-height: 1.5em;
@@ -20,12 +19,16 @@ div[type=slide] div[type=textbox] {
   color: white;
   font-size: 1em;
   opacity: 0;
-  transition: opacity 1.5s;
+  transition: opacity 2s;
   transition-delay: 0.7s;
   height: 85%;
 }
+div[type=slide] div[type=textbox] h2 {
+  text-align: center;
+  padding-bottom: 10px;
+}
 div[type=slide] div[type=textbox] [type=buttonContainer] {
-  padding: 20px;
+  padding: 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -35,6 +38,7 @@ div[type=slide] div[type=textbox] [type=buttonContainer] div {
 }
 div[type=slide] div[type=textbox] [type=buttonContainer] div button {
   cursor: pointer;
+  pointer-events: initial;
   background: rgba(255, 255, 255, 0.4);
   color: white;
   width: 120px;
@@ -116,7 +120,7 @@ div[type=slide] div[type=container] [type=imgContainer] {
   transition: opacity 0.7s, transform 0.7s;
   display: none;
 }
-@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
   div[type=slide] div[type=container] div[type=imgContainer] {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -135,7 +139,7 @@ div[type=slide] div[type=container] [type=imgContainer] {
     max-width: 660px;
   }
 }
-@media (max-aspect-ratio: 3/4) {
+@media (max-aspect-ratio: 1/1) {
   div[type=slide] div[type=container] {
     padding: 0;
     display: grid;
@@ -171,10 +175,6 @@ div[type=slide] div[type=container] [type=imgContainer] {
     text-align: center;
     height: 100%;
   }
-  div[type=slide] div[type=textbox] h2 {
-    text-align: center;
-    padding-bottom: 10px;
-  }
 }
 
 div[type=slide].collapsed div[type=textbox] {
@@ -185,7 +185,7 @@ div[type=slide].collapsed div[type=textbox] {
 div[type=slide].collapsed div[type=container] {
   width: 40%;
 }
-@media (max-aspect-ratio: 3/4) {
+@media (max-aspect-ratio: 1/1) {
   div[type=slide].collapsed div[type=container] {
     width: auto;
   }

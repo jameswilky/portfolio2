@@ -22,6 +22,26 @@ interface IProject {
   collapseButton: HTMLButtonElement | null;
 }
 
+//Add Sidebar scroll events for mobile
+const sidebar: HTMLElement | null = document.querySelector("[type=sidebar]");
+if (sidebar) {
+  const menuOpenButton: HTMLElement | null = document.querySelector(
+    "[type=hamburger]"
+  );
+  if (menuOpenButton) {
+    menuOpenButton.addEventListener("click", e => {
+      sidebar.classList.add("show");
+    });
+  }
+
+  const menuCloseButton = document.querySelector("[type=close]");
+  if (menuCloseButton) {
+    menuCloseButton.addEventListener("click", e => {
+      sidebar.classList.remove("show");
+    });
+  }
+}
+
 const Project = function(name: string): IProject {
   const thumbnail: HTMLElement | null = document.querySelector(
     `[type=thumbnail][project=${name}]`
@@ -33,34 +53,41 @@ const Project = function(name: string): IProject {
     `[type=slide][project=${name}] [type=collapse]`
   );
 
+  const cleanUpText = (slide: HTMLElement) => {
+    const collapsedItem: HTMLElement | null = document.querySelector(
+      ".collapsed"
+    );
+
+    // Used for cleaning up text transition
+    if (
+      collapsedItem &&
+      collapsedItem.getAttribute("project") === slide.getAttribute("project")
+    ) {
+      slide.classList.add("animationCleanUp");
+    }
+
+    setTimeout(() => {
+      slide.classList.remove("animationCleanUp");
+    }, 2000);
+  };
+
   const init = () => {
     if (thumbnail) {
       thumbnail.addEventListener("click", e => {
-        console.log("click");
         if (slide) {
           // Check if we are hovering over collapsed slide
-          const collapsedItem: HTMLElement | null = document.querySelector(
-            ".collapsed"
-          );
-
-          // Used for cleaning up text transition
-          if (
-            collapsedItem &&
-            collapsedItem.getAttribute("project") ===
-              slide.getAttribute("project")
-          ) {
-            slide.classList.add("animationCleanUp");
-          }
-
-          setTimeout(() => {
-            slide.classList.remove("animationCleanUp");
-          }, 2000);
+          cleanUpText(slide);
 
           // Remove collapsed class from all slides
           const slides: NodeListOf<Element> = document.querySelectorAll(
             "[type=slide]"
           );
           slides.forEach(slide => slide.classList.remove("collapsed"));
+
+          // If sidebar is open on mobile, close it
+          if (sidebar) {
+            sidebar.classList.remove("show");
+          }
 
           // Select hovered slide
           state.select(slide, thumbnail);
@@ -113,14 +140,13 @@ const state: State = {
   }
 };
 
-// Set up Selectors
-const thumbnails: HTMLElement | null = document.querySelector(
-  "[type=thumbnailList]"
-);
-const slides: NodeListOf<HTMLElement> = document.querySelectorAll(
-  "[type=slide]"
-);
-
-// Helpers
-const nameIsValid = (name: string | null) =>
-  name && (<any>Object).values(ProjectNames).includes(name);
+// Hide all when resizing
+window.addEventListener("resize", () => {
+  const body: HTMLElement | null = document.querySelector("body");
+  if (body) {
+    body.classList.add("hide");
+    setTimeout(() => {
+      body.classList.remove("hide");
+    }, 500);
+  }
+});

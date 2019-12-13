@@ -44,7 +44,7 @@ div[type=carousel] ul {
   grid-template-rows: repeat(auto-fit, minmax(25px, 1fr));
   width: 100%;
 }
-@media (max-aspect-ratio: 5/3) {
+@media (max-aspect-ratio: 5/3) and (min-aspect-ratio: 1/1) {
   div[type=carousel] ul {
     padding: 0 10%;
     grid-template-rows: repeat(6, minmax(2%, 8%));
@@ -52,6 +52,11 @@ div[type=carousel] ul {
 }
 div[type=carousel] ul:first-child {
   margin-top: 20px;
+}
+@media (max-aspect-ratio: 1/1) {
+  div[type=carousel] ul {
+    justify-content: center;
+  }
 }
 
 [type=thumbnail] {
@@ -72,13 +77,19 @@ div[type=carousel] ul:first-child {
   text-transform: capitalize;
   font-size: 3.8vh;
 }
-@media (max-aspect-ratio: 5/3) {
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
   [type=thumbnail] {
     margin: 0 10px;
   }
   [type=thumbnail]::after {
     content: "" attr(abrev) "";
     font-size: 5vh;
+  }
+}
+@media (max-aspect-ratio: 1/1) {
+  [type=thumbnail] {
+    opacity: 1;
+    width: 200px;
   }
 }
 [type=thumbnail]:hover {
@@ -90,6 +101,11 @@ div[type=carousel] ul:first-child {
     transform: scale(1.75);
   }
 }
+@media (max-aspect-ratio: 1/1) {
+  [type=thumbnail]:hover {
+    transform: scale(1);
+  }
+}
 
 .show[type=thumbnail] {
   box-shadow: none;
@@ -99,6 +115,12 @@ div[type=carousel] ul:first-child {
 @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
   .show[type=thumbnail] {
     transform: scale(1.75);
+  }
+}
+@media (max-aspect-ratio: 1/1) {
+  .show[type=thumbnail] {
+    transform: scale(1);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
   }
 }
 

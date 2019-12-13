@@ -10,6 +10,20 @@
 
 @import "../thumbnails/thumbnails.scss";
 @import "../slides/slides.scss";
+@import "../variables/variables.scss";
+
+/* Hide scrollbars */
+html * {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none; /* IE 11 */
+  // scrollbar-width: none; /* Firefox 64 */
+  scrollbar-color: $transparent4;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 main {
   background: $transparent;
   margin: 20px;
@@ -24,7 +38,7 @@ main {
   overflow-x: hidden;
 
   // Mobile only
-  @media (max-aspect-ratio: 3/4) {
+  @media (max-aspect-ratio: 1/1) {
     margin: 10px;
     height: calc(100% - 20px);
 
@@ -44,12 +58,12 @@ body {
   grid-template-rows: 1fr;
 
   // On Tablet only
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
+  @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
     grid-template-columns: 13% 1fr;
   }
 
   // Mobile only
-  @media (max-aspect-ratio: 3/4) {
+  @media (max-aspect-ratio: 1/1) {
     grid-template-columns: 1fr;
   }
 }
@@ -57,20 +71,75 @@ body [type="sidebar"] {
   background: $transparent;
   display: grid;
   grid-template-rows: 1fr;
+  transition: transform 0.5s;
 
   // Mobile only
-  @media (max-aspect-ratio: 3/4) {
+  @media (max-aspect-ratio: 1/1) {
+    position: absolute;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background: $primary;
+    transform: translateX(-100%);
+  }
+}
+
+[type="sidebar"].show {
+  //Mobile only
+  @media (max-aspect-ratio: 1/1) {
+    transform: translateX(0);
+  }
+
+  [type="close"] {
+    opacity: 1;
+  }
+}
+
+[type="hamburger"] {
+  // On tablet +
+  @media (min-aspect-ratio: 1/1) {
     display: none;
   }
+
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 11;
+
+  & div {
+    width: 24px;
+    height: 4px;
+    background-color: $transparent4;
+    margin: 4px 0;
+  }
+}
+[type="close"] {
+  // On tablet +
+  @media (min-aspect-ratio: 1/1) {
+    display: none;
+  }
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 11;
+  opacity: 0;
+
+  transition: all 0.5s;
+  transition-delay: 0.5s;
+
+  font-size: 2rem;
+  color: $transparent4;
 }
 
 /*    
 
   //Mobile and Tablet
-  @media (max-aspect-ratio: 3/4) 
+  @media (max-aspect-ratio: 1/1) 
 
   // Tablet Only
-  @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) 
+  @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) 
 
   // Desktop
   @media (min-aspect-ratio: 5/3) 

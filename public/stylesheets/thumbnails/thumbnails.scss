@@ -71,7 +71,7 @@ div[type="carousel"] ul {
   width: 100%;
 
   // On Tablet and smaller
-  @media (max-aspect-ratio: 5/3) {
+  @media (max-aspect-ratio: 5/3) and (min-aspect-ratio: 1/1) {
     padding: 0 10%;
 
     grid-template-rows: repeat(6, minmax(2%, 8%));
@@ -79,6 +79,11 @@ div[type="carousel"] ul {
 
   &:first-child {
     margin-top: 20px;
+  }
+
+  // On Mobile
+  @media (max-aspect-ratio: 1/1) {
+    justify-content: center;
   }
 }
 
@@ -100,8 +105,8 @@ div[type="carousel"] ul {
     text-transform: capitalize;
     font-size: 3.8vh;
   }
-  // On Tablet and smaller
-  @media (max-aspect-ratio: 5/3) {
+  // On Tablet only
+  @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
     &::after {
       content: "" attr(abrev) "";
       font-size: 5vh;
@@ -111,6 +116,11 @@ div[type="carousel"] ul {
 
   opacity: 0.4;
   box-shadow: 5px 5px $transparentBlack2;
+  //mobile
+  @media (max-aspect-ratio: 1/1) {
+    opacity: 1;
+    width: 200px;
+  }
 
   &:hover {
     transform: scale(1.25);
@@ -118,6 +128,10 @@ div[type="carousel"] ul {
     // On Tablet
     @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
       transform: scale(1.75);
+    }
+    //mobile
+    @media (max-aspect-ratio: 1/1) {
+      transform: scale(1);
     }
   }
 }
@@ -130,5 +144,11 @@ div[type="carousel"] ul {
   // On Tablet
   @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
     transform: scale(1.75);
+  }
+
+  //mobile
+  @media (max-aspect-ratio: 1/1) {
+    transform: scale(1);
+    box-shadow: 5px 5px $transparentBlack2;
   }
 }
