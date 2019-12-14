@@ -11,7 +11,7 @@ enum ProjectNames {
 // State
 interface State {
   selected: { slide: HTMLElement | null; thumbnail: HTMLElement | null };
-  select: (slide: HTMLElement, thumbnail: HTMLElement) => void;
+  select: (slide: HTMLElement | null, thumbnail: HTMLElement | null) => void;
 }
 
 // Project
@@ -53,6 +53,32 @@ const Project = function(name: string): IProject {
     `[type=slide][project=${name}] [type=collapse]`
   );
 
+  const mobileImage: HTMLImageElement | null =
+    slide && slide.querySelector("[type=mobile]");
+  const images: NodeListOf<HTMLImageElement> | null =
+    slide && slide.querySelectorAll("[type=mobile]");
+
+  const startCarousel = () => {
+    if (mobileImage && name !== "chess") {
+      const showImage = (i: number) => {
+        if (images) {
+          images.forEach((image, j) => {
+            if (i === j) image.classList.add("show");
+            else image.classList.remove("show");
+          });
+        }
+      };
+      let nextImage = 0;
+      const n = 1;
+      showImage(nextImage);
+
+      return setInterval(() => {
+        if (nextImage < n) ++nextImage;
+        else nextImage = 0;
+        showImage(nextImage);
+      }, 5000);
+    }
+  };
   const cleanUpText = (slide: HTMLElement) => {
     const collapsedItem: HTMLElement | null = document.querySelector(
       ".collapsed"
@@ -99,6 +125,9 @@ const Project = function(name: string): IProject {
       collapseButton.addEventListener("click", e => {
         if (slide) {
           slide.classList.add("collapsed");
+          setTimeout(() => {
+            startCarousel();
+          }, 500);
         }
       });
     }
@@ -119,8 +148,8 @@ const projects: Array<IProject> = (<any>Object)
 
 // Initialize state
 const state: State = {
-  selected: { slide: projects[0].slide, thumbnail: projects[0].thumbnail },
-  select: function(slide: HTMLElement, thumbnail: HTMLElement) {
+  selected: { slide: null, thumbnail: null },
+  select: function(slide: HTMLElement | null, thumbnail: HTMLElement | null) {
     if (this.selected.slide && this.selected.thumbnail) {
       this.selected.slide.classList.remove("show");
       this.selected.slide.classList.add("hide");
@@ -150,3 +179,9 @@ window.addEventListener("resize", () => {
     }, 500);
   }
 });
+
+if (projects[0]) {
+  state.select(projects[0].slide, projects[0].thumbnail);
+}
+
+// TODO remove slider timer after uncollapse

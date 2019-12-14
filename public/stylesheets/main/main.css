@@ -244,6 +244,10 @@ div[type=slide] div[type=container] img[type=mobile] {
   width: 100%;
   opacity: 0;
 }
+div[type=slide] div[type=container] img[type=mobile].show {
+  opacity: 1 !important;
+  transition: opacity 1.5s !important;
+}
 div[type=slide] div[type=container] [type=overlay] {
   transition: top 0.5s right 0.5s;
   position: absolute;
@@ -305,8 +309,10 @@ div[type=slide] div[type=container] [type=tablet] {
     transform: none;
     position: static;
     width: 100vw;
-    opacity: 1;
     object-position: center;
+  }
+  div[type=slide] div[type=container] img[type=mobile][overlay=true] {
+    position: absolute;
   }
   div[type=slide] div[type=textbox] {
     padding: 15px 35px 80px 15px;
@@ -328,10 +334,16 @@ div[type=slide].collapsed div[type=textbox] {
   z-index: 5;
   display: initial;
 }
-div[type=slide].collapsed div[type=container] {
-  width: 40%;
+@media (min-aspect-ratio: 5/3) {
+  div[type=slide].collapsed div[type=container] {
+    width: 25%;
+    position: fixed;
+    left: 38%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
-@media (min-aspect-ratio: 1/1) {
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
   div[type=slide].collapsed div[type=container] {
     width: 25%;
     position: fixed;
@@ -354,7 +366,6 @@ div[type=slide].collapsed div[type=container] [type=overlay] {
 }
 div[type=slide].collapsed div[type=container] img[type=mobile] {
   transform: scale(1);
-  opacity: 1;
 }
 div[type=slide].collapsed div[type=container] img[type=tablet] {
   transform: scale(0);

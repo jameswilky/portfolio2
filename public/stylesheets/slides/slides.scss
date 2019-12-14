@@ -131,6 +131,11 @@ div[type="slide"] {
       opacity: 0;
     }
 
+    & img[type="mobile"].show {
+      opacity: 1 !important;
+      transition: opacity 1.5s !important;
+    }
+
     & [type="overlay"] {
       transition: top 0.5s right 0.5s;
       position: absolute;
@@ -203,9 +208,11 @@ div[type="slide"] {
         transform: none;
         position: static;
         width: 100vw;
-        opacity: 1;
 
         object-position: center;
+      }
+      & img[type="mobile"][overlay="true"] {
+        position: absolute;
       }
     }
 
@@ -236,10 +243,17 @@ div[type="slide"].collapsed {
   }
 
   & div[type="container"] {
-    width: 40%;
+    // Desktop
+    @media (min-aspect-ratio: 5/3) {
+      width: 25%;
+      position: fixed;
+      left: 38%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-    // Tablet and larger
-    @media (min-aspect-ratio: 1/1) {
+    // Tablet
+    @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
       width: 25%;
       position: fixed;
       left: 33%;
@@ -261,7 +275,6 @@ div[type="slide"].collapsed {
 
     & img[type="mobile"] {
       transform: scale(1);
-      opacity: 1;
     }
 
     & img[type="tablet"] {
