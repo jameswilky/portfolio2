@@ -107,15 +107,23 @@ div[type="slide"] {
       }
     }
     & img[type="desktop"] {
-      transition: width 0.7s, transform 0.7s, opacity 0.7s;
+      transition: width 0.5s, transform 0.5s, opacity 0.5s;
       transition-timing-function: ease-in-out;
       padding: 20px;
       width: 100%;
-      transform: scale(1);
+      // transform: scale(1);
       position: absolute;
-      opacity: 1;
+      // opacity: 1;
+
+      transform: scale(0);
+      opacity: 0;
 
       object-fit: contain;
+    }
+
+    & img[type="desktop"].show {
+      opacity: 1;
+      transform: scale(1);
     }
 
     & img[type="mobile"] {
@@ -160,6 +168,10 @@ div[type="slide"] {
           transform: translateY(3px) translateX(4px);
           box-shadow: none;
           opacity: 0.7;
+        }
+
+        &:focus {
+          transform: scale(0);
         }
       }
     }
@@ -242,10 +254,11 @@ div[type="slide"].collapsed {
     display: initial;
   }
 
+  // TODO pass this style in a seperate class with a slight delay
   & div[type="container"] {
     // Desktop
     @media (min-aspect-ratio: 5/3) {
-      width: 25%;
+      width: 30%;
       position: fixed;
       left: 38%;
       top: 50%;
@@ -254,7 +267,7 @@ div[type="slide"].collapsed {
 
     // Tablet
     @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
-      width: 25%;
+      width: 30%;
       position: fixed;
       left: 33%;
       top: 50%;
@@ -265,12 +278,13 @@ div[type="slide"].collapsed {
       width: auto;
     }
 
-    & img[type="desktop"] {
-      transform: scale(0);
-      opacity: 0;
-    }
+    // & img[type="desktop"] {
+    //   transform: scale(0);
+    //   opacity: 0;
+    // }
     & [type="overlay"] {
-      visibility: hidden;
+      // visibility: hidden;
+      opacity: 0;
     }
 
     & img[type="mobile"] {

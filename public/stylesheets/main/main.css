@@ -225,14 +225,18 @@ div[type=slide] div[type=container]:hover [type=tablet] {
   opacity: 0.6;
 }
 div[type=slide] div[type=container] img[type=desktop] {
-  transition: width 0.7s, transform 0.7s, opacity 0.7s;
+  transition: width 0.5s, transform 0.5s, opacity 0.5s;
   transition-timing-function: ease-in-out;
   padding: 20px;
   width: 100%;
-  transform: scale(1);
   position: absolute;
-  opacity: 1;
+  transform: scale(0);
+  opacity: 0;
   object-fit: contain;
+}
+div[type=slide] div[type=container] img[type=desktop].show {
+  opacity: 1;
+  transform: scale(1);
 }
 div[type=slide] div[type=container] img[type=mobile] {
   position: absolute;
@@ -272,6 +276,9 @@ div[type=slide] div[type=container] [type=overlay] button:active {
   transform: translateY(3px) translateX(4px);
   box-shadow: none;
   opacity: 0.7;
+}
+div[type=slide] div[type=container] [type=overlay] button:focus {
+  transform: scale(0);
 }
 div[type=slide] div[type=container] [type=tablet] {
   display: none;
@@ -336,7 +343,7 @@ div[type=slide].collapsed div[type=textbox] {
 }
 @media (min-aspect-ratio: 5/3) {
   div[type=slide].collapsed div[type=container] {
-    width: 25%;
+    width: 30%;
     position: fixed;
     left: 38%;
     top: 50%;
@@ -345,7 +352,7 @@ div[type=slide].collapsed div[type=textbox] {
 }
 @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
   div[type=slide].collapsed div[type=container] {
-    width: 25%;
+    width: 30%;
     position: fixed;
     left: 33%;
     top: 50%;
@@ -357,12 +364,8 @@ div[type=slide].collapsed div[type=textbox] {
     width: auto;
   }
 }
-div[type=slide].collapsed div[type=container] img[type=desktop] {
-  transform: scale(0);
-  opacity: 0;
-}
 div[type=slide].collapsed div[type=container] [type=overlay] {
-  visibility: hidden;
+  opacity: 0;
 }
 div[type=slide].collapsed div[type=container] img[type=mobile] {
   transform: scale(1);

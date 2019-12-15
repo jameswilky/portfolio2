@@ -87,10 +87,17 @@ const Project = function (name) {
         if (collapseButton) {
             collapseButton.addEventListener("click", e => {
                 if (slide) {
-                    slide.classList.add("collapsed");
+                    const desktopImage = slide.querySelector("img[type=desktop]");
+                    if (desktopImage) {
+                        desktopImage.classList.toggle("show");
+                        console.log(desktopImage);
+                    }
+                    setTimeout(() => {
+                        slide.classList.add("collapsed");
+                    }, 500);
                     setTimeout(() => {
                         startCarousel();
-                    }, 500);
+                    }, 1000);
                 }
             });
         }
