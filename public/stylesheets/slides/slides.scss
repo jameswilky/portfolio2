@@ -38,7 +38,13 @@ div[type="slide"] {
       opacity: 1;
       z-index: 2;
     }
+
+
+
+
   }
+
+
 
   // Tablet Only
   @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
@@ -118,6 +124,20 @@ div[type="slide"]>div[type="uncollapsed"] {
   & [type="tablet"] {
     display: none;
   }
+
+  // On mobile, auto apply the effects of collapsed 
+  @media (max-aspect-ratio: 1/1) {
+    opacity: 0;
+    transform: scale(0);
+    z-index: 0;
+
+
+    & div[type="collapsed"] {
+      transition-delay: 0.7s;
+      opacity: 1;
+      z-index: 2;
+    }
+  }
 }
 
 // collapsed slide
@@ -130,12 +150,6 @@ div[type="slide"]>div[type="collapsed"] {
   grid-template-rows: 100%;
   opacity: 0;
   transition: opacity 2s;
-
-
-
-
-
-
 
 
   & [type="carousel"] {
@@ -222,10 +236,17 @@ div[type="slide"]>div[type="collapsed"] {
 
   //Mobile
   @media (max-aspect-ratio: 1/1) {
-    padding: 20px;
+    padding: 15px;
     grid-template-columns: 1fr;
     overflow: auto;
     grid-template-rows: unset;
+
+
+    // Show as if collapsed when on mobile
+    transition-delay: 0.7s;
+    opacity: 1;
+    z-index: 2;
+
 
 
     & [type="carousel"] {
@@ -236,26 +257,25 @@ div[type="slide"]>div[type="collapsed"] {
         transform: translate(-50%, 0);
         right: unset;
         top: 5vh;
-        max-height: 65vh;
+        max-height: 60vh;
       }
     }
 
     & [type="description"] {
       position: relative;
-      top: 70vh;
+      top: 65vh;
       margin-bottom: 20px;
 
-      & p {
-        text-align: center;
-      }
 
-      & [type="tagContainer"] {}
+
 
       & [type="buttonContainer"] {
 
         margin-bottom: 75px;
         margin-top: -75px;
       }
+
+
     }
   }
 }

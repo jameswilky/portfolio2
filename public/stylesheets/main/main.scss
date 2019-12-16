@@ -5,9 +5,7 @@
   box-sizing: border-box;
 }
 
-:root {
-  --desktopImageHeight: 850px;
-}
+
 
 @import "../thumbnails/thumbnails.scss";
 @import "../slides/slides.scss";
@@ -111,8 +109,8 @@ body [type="sidebar"] {
 
   cursor: pointer;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 5px;
+  left: 5px;
   z-index: 11;
 
   & div {
