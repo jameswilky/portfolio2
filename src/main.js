@@ -32,19 +32,18 @@ const Project = function (name) {
     const mobileImage = slide && slide.querySelector("[type=mobile]");
     const images = slide && slide.querySelectorAll("[type=mobile]");
     const startCarousel = () => {
-        if (mobileImage && name !== "chess") {
+        console.log(images);
+        if (mobileImage && name !== "chess" && images) {
             const showImage = (i) => {
-                if (images) {
-                    images.forEach((image, j) => {
-                        if (i === j)
-                            image.classList.add("show");
-                        else
-                            image.classList.remove("show");
-                    });
-                }
+                images.forEach((image, j) => {
+                    if (i === j)
+                        image.classList.add("show");
+                    else
+                        image.classList.remove("show");
+                });
             };
             let nextImage = 0;
-            const n = 1;
+            const n = images.length - 1;
             showImage(nextImage);
             return setInterval(() => {
                 if (nextImage < n)
@@ -102,7 +101,7 @@ const Project = function (name) {
             });
         }
     };
-    init();
+    // init();
     return {
         name,
         slide,
@@ -144,7 +143,7 @@ window.addEventListener("resize", () => {
         }, 500);
     }
 });
-if (projects[0]) {
-    state.select(projects[0].slide, projects[0].thumbnail);
-}
+// if (projects[0]) {
+//   state.select(projects[0].slide, projects[0].thumbnail);
+// }
 // TODO remove slider timer after uncollapse
