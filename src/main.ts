@@ -104,12 +104,10 @@ const Project = function(name: string): IProject {
             "[type=slide]"
           );
           slides.forEach(slide => slide.classList.remove("collapsed"));
-
           // If sidebar is open on mobile, close it
           if (sidebar) {
             sidebar.classList.remove("show");
           }
-
           // Select hovered slide
           state.select(slide, thumbnail);
         }
@@ -160,17 +158,6 @@ const state: State = {
     }
   }
 };
-
-// Hide all when resizing
-// window.addEventListener("resize", () => {
-//   const body: HTMLElement | null = document.querySelector("body");
-//   if (body) {
-//     body.classList.add("hide");
-//     setTimeout(() => {
-//       body.classList.remove("hide");
-//     }, 500);
-//   }
-// });
 
 if (projects[0]) {
   state.select(projects[0].slide, projects[0].thumbnail);

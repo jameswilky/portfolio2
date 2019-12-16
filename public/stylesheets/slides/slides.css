@@ -39,45 +39,6 @@ div[type=slide].collapsed div[type=collapsed] {
     display: none;
   }
 }
-@media (max-aspect-ratio: 1/1) {
-  div[type=slide] div[type=container] {
-    padding: 0;
-    display: grid;
-    height: 75vh;
-  }
-  div[type=slide] div[type=container] [type=desktop] {
-    display: none;
-  }
-  div[type=slide] div[type=container] [type=overlay] {
-    display: none;
-  }
-  div[type=slide] div[type=container] [type=tablet] {
-    display: none;
-  }
-  div[type=slide] div[type=container] img[type=mobile] {
-    transition: none;
-    transform: none;
-    position: absolute;
-    width: 100vw;
-    object-position: center;
-  }
-  div[type=slide] div[type=container] img[type=mobile][overlay=true] {
-    position: absolute;
-  }
-  div[type=slide] div[type=description] {
-    padding: 15px 35px 80px 15px;
-    z-index: 1;
-    position: static;
-    left: auto;
-    line-height: 1.6em;
-    color: white;
-    font-size: 1rem;
-    width: calc(100%);
-    opacity: 1;
-    text-align: center;
-    height: 100%;
-  }
-}
 
 div[type=slide] > div[type=uncollapsed] {
   position: relative;
@@ -144,7 +105,6 @@ div[type=slide] > div[type=collapsed] [type=carousel] {
 }
 div[type=slide] > div[type=collapsed] [type=carousel] img[type=mobile] {
   padding-left: 10px;
-  position: absolute;
   max-width: 100%;
   object-fit: contain;
   max-height: 80vh;
@@ -169,13 +129,17 @@ div[type=slide] > div[type=collapsed] div[type=description] {
   grid-template-rows: 4fr 1fr;
 }
 div[type=slide] > div[type=collapsed] div[type=description] div[type=textbox] {
-  overflow-y: auto;
-  overflow-x: hidden;
   height: 100%;
   height: calc(100% - 20px);
   padding-bottom: 50px;
-  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+@media (min-aspect-ratio: 1/1) {
+  div[type=slide] > div[type=collapsed] div[type=description] div[type=textbox] {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 div[type=slide] > div[type=collapsed] div[type=description] div[type=textbox] h2 {
   line-height: 1.25em;
@@ -198,16 +162,47 @@ div[type=slide] > div[type=collapsed] div[type=description] div[type=tagContaine
   margin: 4px;
   box-shadow: 4px 4px rgba(0, 0, 0, 0.2);
 }
-div[type=slide] > div[type=collapsed] div[type=description] [type=buttonContainer] {
+@media (max-aspect-ratio: 1/1) {
+  div[type=slide] > div[type=collapsed] {
+    padding: 20px;
+    grid-template-columns: 1fr;
+    overflow: auto;
+    grid-template-rows: unset;
+  }
+  div[type=slide] > div[type=collapsed] [type=carousel] {
+    height: 100%;
+  }
+  div[type=slide] > div[type=collapsed] [type=carousel] img[type=mobile] {
+    left: 50%;
+    transform: translate(-50%, 0);
+    right: unset;
+    top: 5vh;
+    max-height: 65vh;
+  }
+  div[type=slide] > div[type=collapsed] [type=description] {
+    position: relative;
+    top: 70vh;
+    margin-bottom: 20px;
+  }
+  div[type=slide] > div[type=collapsed] [type=description] p {
+    text-align: center;
+  }
+  div[type=slide] > div[type=collapsed] [type=description] [type=buttonContainer] {
+    margin-bottom: 75px;
+    margin-top: -75px;
+  }
+}
+
+[type=buttonContainer] {
   padding: 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-div[type=slide] > div[type=collapsed] div[type=description] [type=buttonContainer] div {
+[type=buttonContainer] div {
   display: grid;
   justify-content: center;
 }
-div[type=slide] > div[type=collapsed] div[type=description] [type=buttonContainer] div button {
+[type=buttonContainer] div button {
   cursor: pointer;
   pointer-events: initial;
   background: rgba(255, 255, 255, 0.8);
@@ -220,7 +215,7 @@ div[type=slide] > div[type=collapsed] div[type=description] [type=buttonContaine
   border-radius: 90px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
 }
-div[type=slide] > div[type=collapsed] div[type=description] [type=buttonContainer] div button:hover {
+[type=buttonContainer] div button:hover {
   color: black;
   background: rgba(255, 255, 255, 0.4);
 }

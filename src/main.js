@@ -119,16 +119,6 @@ const state = {
         }
     }
 };
-// Hide all when resizing
-// window.addEventListener("resize", () => {
-//   const body: HTMLElement | null = document.querySelector("body");
-//   if (body) {
-//     body.classList.add("hide");
-//     setTimeout(() => {
-//       body.classList.remove("hide");
-//     }, 500);
-//   }
-// });
 if (projects[0]) {
     state.select(projects[0].slide, projects[0].thumbnail);
 }

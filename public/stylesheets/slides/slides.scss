@@ -1,5 +1,7 @@
 @import "../variables/variables.scss";
 
+
+
 div[type="slide"] {
   position: absolute;
   display: grid;
@@ -55,56 +57,6 @@ div[type="slide"] {
     }
   }
 
-  // Mobile only
-  @media (max-aspect-ratio: 1/1) {
-    & div[type="container"] {
-      padding: 0;
-      display: grid;
-
-      & [type="desktop"] {
-        display: none;
-      }
-
-      & [type="overlay"] {
-        display: none;
-      }
-
-      & [type="tablet"] {
-        display: none;
-      }
-
-      height: 75vh;
-
-      & img[type="mobile"] {
-        transition: none;
-        transform: none;
-        position: absolute;
-        width: 100vw;
-
-        object-position: center;
-      }
-
-      & img[type="mobile"][overlay="true"] {
-        position: absolute;
-      }
-    }
-
-    & div[type="description"] {
-      // Extra white space at bottom for fade
-      padding: 15px 35px 80px 15px;
-      z-index: 1;
-      position: static;
-      left: auto;
-      line-height: 1.6em;
-      color: white;
-      font-size: 1rem;
-      width: calc(100%);
-      opacity: 1;
-      text-align: center;
-
-      height: 100%;
-    }
-  }
 }
 
 // uncollapsed slide
@@ -179,14 +131,21 @@ div[type="slide"]>div[type="collapsed"] {
   opacity: 0;
   transition: opacity 2s;
 
+
+
+
+
+
+
+
   & [type="carousel"] {
     width: 100%;
     position: relative;
 
     & img[type="mobile"] {
+
       padding-left: 10px;
 
-      position: absolute;
       max-width: 100%;
       object-fit: contain;
       max-height: 80vh;
@@ -216,16 +175,21 @@ div[type="slide"]>div[type="collapsed"] {
     grid-template-rows: 4fr 1fr;
 
     div[type="textbox"] {
-      overflow-y: auto;
-      overflow-x: hidden;
       height: 100%;
       height: calc(100% - 20px);
       padding-bottom: 50px;
 
-      -webkit-mask-image: linear-gradient(to bottom,
-          black 80%,
-          transparent 100%);
-      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+
+      // inner scroll on non mobile
+      @media (min-aspect-ratio: 1/1) {
+        -webkit-mask-image: linear-gradient(to bottom,
+            black 80%,
+            transparent 100%);
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
 
       & h2 {
         line-height: 1.25em;
@@ -253,36 +217,79 @@ div[type="slide"]>div[type="collapsed"] {
       }
     }
 
-    & [type="buttonContainer"] {
-      padding: 20px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
 
-      & div {
-        display: grid;
-        justify-content: center;
+  }
 
-        & button {
-          cursor: pointer;
-          pointer-events: initial;
-          background: $transparent5;
-          color: $primary;
-          width: 120px;
-          padding: 15px 20px;
-          font-size: 1rem;
-          border: none;
-          outline: none;
-          border-radius: 90px;
-          box-shadow: 3px 3px $transparentBlack4;
+  //Mobile
+  @media (max-aspect-ratio: 1/1) {
+    padding: 20px;
+    grid-template-columns: 1fr;
+    overflow: auto;
+    grid-template-rows: unset;
 
-          &:hover {
-            color: black;
-            background: $transparent4;
-          }
-        }
+
+    & [type="carousel"] {
+      height: 100%;
+
+      & img[type='mobile'] {
+        left: 50%;
+        transform: translate(-50%, 0);
+        right: unset;
+        top: 5vh;
+        max-height: 65vh;
+      }
+    }
+
+    & [type="description"] {
+      position: relative;
+      top: 70vh;
+      margin-bottom: 20px;
+
+      & p {
+        text-align: center;
+      }
+
+      & [type="tagContainer"] {}
+
+      & [type="buttonContainer"] {
+
+        margin-bottom: 75px;
+        margin-top: -75px;
       }
     }
   }
+}
+
+[type="buttonContainer"] {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  & div {
+    display: grid;
+    justify-content: center;
+
+    & button {
+      cursor: pointer;
+      pointer-events: initial;
+      background: $transparent5;
+      color: $primary;
+      width: 120px;
+      padding: 15px 20px;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+      border-radius: 90px;
+      box-shadow: 3px 3px $transparentBlack4;
+
+      &:hover {
+        color: black;
+        background: $transparent4;
+      }
+    }
+  }
+
+
 }
 
 /* =================================*/

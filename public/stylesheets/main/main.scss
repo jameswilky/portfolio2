@@ -4,6 +4,7 @@
   font-family: "Rubik", sans-serif;
   box-sizing: border-box;
 }
+
 :root {
   --desktopImageHeight: 850px;
 }
@@ -15,11 +16,13 @@
 /* Hide scrollbars */
 html * {
   overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none; /* IE 11 */
+  -ms-overflow-style: none;
+  /* IE 11 */
   // scrollbar-width: none; /* Firefox 64 */
   scrollbar-color: $transparent4;
   scrollbar-width: thin;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -37,6 +40,7 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
 
+
   // Mobile only
   @media (max-aspect-ratio: 1/1) {
     margin: 10px;
@@ -46,6 +50,7 @@ main {
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   }
 }
+
 html {
   height: 100vh;
 }
@@ -67,6 +72,7 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 body [type="sidebar"] {
   background: $transparent;
   display: grid;
@@ -85,6 +91,7 @@ body [type="sidebar"] {
 }
 
 [type="sidebar"].show {
+
   //Mobile only
   @media (max-aspect-ratio: 1/1) {
     transform: translateX(0);
@@ -96,6 +103,7 @@ body [type="sidebar"] {
 }
 
 [type="hamburger"] {
+
   // On tablet +
   @media (min-aspect-ratio: 1/1) {
     display: none;
@@ -114,11 +122,14 @@ body [type="sidebar"] {
     margin: 4px 0;
   }
 }
+
 [type="close"] {
+
   // On tablet +
   @media (min-aspect-ratio: 1/1) {
     display: none;
   }
+
   cursor: pointer;
   position: absolute;
   top: 0px;
