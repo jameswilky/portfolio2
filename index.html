@@ -1,263 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="/public/stylesheets/main/main.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>James Wilkinson</title>
-  </head>
-  <body>
-    <section type="sidebar">
-      <div type="carousel">
-        <ul type="thumbnailList">
-          <li project="airplayer" type="thumbnail" abrev="A"></li>
-          <li project="mosaicify" type="thumbnail" abrev="M"></li>
-          <li project="notflix" type="thumbnail" abrev="N"></li>
-          <li project="ascension" type="thumbnail" abrev="A"></li>
-          <li project="gitview" type="thumbnail" abrev="G"></li>
-          <li project="chess" type="thumbnail" abrev="C"></li>
-        </ul>
-      </div>
-      <div type="close">
-        x
-      </div>
-    </section>
-    <main>
-      <div type="slide" project="airplayer" class="show collapsed">
-        <div type="uncollapsed">
-          <img
-            type="desktop"
-            class="show"
-            src="public/images/airplayer/desktop-min.JPG"
-            alt=""
-          />
-          <img
-            type="tablet"
-            src="public/images/airplayer/tablet-min.JPG"
-            alt=""
-          />
-          <div type="overlay"><button type="collapse">More Info</button></div>
-        </div>
-        <div type="collapsed">
-          <div type="carousel">
-            <img
-              type="mobile"
-              src="public/images/airplayer/mobile1-min.JPG"
-              alt=""
-            />
-            <img
-              overlay="true"
-              type="mobile"
-              src="public/images/airplayer/mobile2-min.JPG"
-              alt=""
-            />
-          </div>
-          <div type="description">
-            <div type="textbox">
-                <h2>Airplayer</h2>         
-                <p>
-                  Airplayer is a music player that allows multiple users to
-                  collaboratively control which music is played. Using the Spotify Web
-                  API and Spotify Web playback API, users can create and join ‘rooms’
-                  which allow users to search for tracks on Spotify, and add them to a
-                  playlist that is visible and mutable to all users in the room, and
-                  can be played within the browser. <br /><br />The front end was
-                  created using React, with and the backend was created using NodeJS,
-                  MongoDB, WebSockets and contains over 100 unit test cases. It’s
-                  quite a large project, with a more thorough technical explanation
-                  detailed within the readme on GitHub. This is also a project I am
-                  actively working on and therefore still contains some issues, most
-                  of which can typically be fixed by refreshing the page.
-                  <br />
-                  <br />
-                  After fixing these issues, my plan is to add a feature that will
-                  recommend tracks based on the tracks that are commonly listened to
-                  by users in the room, as well as using Spotify’s recommendation API
-                  to find new tracks based on the listening habits of users in the
-                  room. I also plan on creating a native version using React Native so
-                  users as the Spotify Webplayback API is not supported on mobile.
-      
-                  <br>
-                  <br>
-                  <div type='tagContainer'>
-                    <div type='tag'>React</div>
-                    <div type='tag'>Styled Components</div>
-                    <div type='tag'>NodeJS</div>
-                    <div type='tag'>MongoDB</div>
-                    <div type='tag'>WebSockets</div>
-                    <div type='tag'>Spotify Web API</div>
-                    <div type='tag'>Jest</div>
-                  </div>
-                </p>
-            </div>
-            <div type="buttonContainer">
-              <div><button>(eye)Demo</button></div>
-              <div><button>(markupsymbol)Code</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div type="slide" project="mosaicify">
-        <div type="container">
-          <img
-            type="mobile"
-            src="public/images/mosaicify/mobile1-min.JPG"
-            alt=""
-          />
-          <img
-            type="desktop"
-            src="public/images/mosaicify/desktop-min.JPG"
-            alt=""
-          />
-          <img
-            type="tablet"
-            src="public/images/mosaicify/tablet-min.jpeg"
-            alt=""
-          />
-          <div type="overlay"><button type="collapse">More Info</button></div>
-        </div>
+  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+  <link href="/public/stylesheets/main/main.css" rel="stylesheet" type="text/css" />
 
+  <title>James Wilkinson</title>
+  <script src="https://kit.fontawesome.com/157922a9e8.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <section type="sidebar">
+    <div type="carousel">
+      <ul type="thumbnailList">
+        <li project="airplayer" type="thumbnail" abrev="A"></li>
+        <li project="mosaicify" type="thumbnail" abrev="M"></li>
+        <li project="notflix" type="thumbnail" abrev="N"></li>
+        <li project="ascension" type="thumbnail" abrev="A"></li>
+        <li project="gitview" type="thumbnail" abrev="G"></li>
+        <li project="chess" type="thumbnail" abrev="C"></li>
+      </ul>
+    </div>
+    <div type="close">
+      x
+    </div>
+  </section>
+  <main>
+    <div type="slide" project="airplayer">
+
+      <div type="collapsed">
+        <div type="carousel">
+          <img type="mobile" src="public/images/airplayer/mobile1-min.JPG" alt="" />
+          <img type="mobile" src="public/images/airplayer/mobile2-min.JPG" alt="" />
+          <img type="mobile" src="public/images/airplayer/mobile3-min.JPG" alt="" />
+          <img type="mobile" src="public/images/airplayer/mobile4-min.JPG" alt="" />
+          <img type="mobile" src="public/images/airplayer/mobile5-min.JPG" alt="" />
+
+        </div>
         <div type="description">
-          <h2>Title</h2>
-          <p>
-            Text
-          </p>
-          <div type="buttonContainer">
-            <div><button>View Code</button></div>
-            <div><button>Visit Site</button></div>
-          </div>
-        </div>
-      </div>
-      <div type="slide" project="notflix">
-        <div type="container">
-          <img
-            type="mobile"
-            src="public/images/notflix/mobile1-min.JPG"
-            alt=""
-          />
-          <img
-            type="desktop"
-            src="public/images/notflix/desktop-min.JPG"
-            alt=""
-          />
-          <img
-            type="tablet"
-            src="public/images/notflix/tablet-min.JPG"
-            alt=""
-          />
-          <div type="overlay"><button type="collapse">More Info</button></div>
-        </div>
+          <div type="textbox">
+            <h2>Airplayer</h2>
+            <br>
+            <p>
+              Airplayer is a music player that allows multiple users to
+              collaboratively control which music is played. Using the Spotify Web
+              API and Spotify Web playback API, users can create and join ‘rooms’
+              which allow users to search for tracks on Spotify, and add them to a
+              playlist that is visible and mutable to all users in the room, and
+              can be played within the browser. <br /><br />The front end was
+              created using React, with and the backend was created using NodeJS,
+              MongoDB, WebSockets and contains over 100 unit test cases. It’s
+              quite a large project, with a more thorough technical explanation
+              detailed within the readme on GitHub. This is also a project I am
+              actively working on and therefore still contains some issues, most
+              of which can typically be fixed by refreshing the page.
+              <br />
+              <br />
+              After fixing these issues, my plan is to add a feature that will
+              recommend tracks based on the tracks that are commonly listened to
+              by users in the room, as well as using Spotify’s recommendation API
+              to find new tracks based on the listening habits of users in the
+              room. I also plan on creating a native version using React Native so
+              users as the Spotify Webplayback API is not supported on mobile.
 
-        <div type="description">
-          <h2>Title</h2>
-          <p>
-            Text
-          </p>
+              <br>
+              <br>
+              <div type='tagContainer'>
+                <div type='tag'>React</div>
+                <div type='tag'>Styled Components</div>
+                <div type='tag'>NodeJS</div>
+                <div type='tag'>MongoDB</div>
+                <div type='tag'>WebSockets</div>
+                <div type='tag'>Spotify Web API</div>
+                <div type='tag'>Jest</div>
+              </div>
+            </p>
+          </div>
           <div type="buttonContainer">
-            <div><button>View Code</button></div>
-            <div><button>Visit Site</button></div>
+            <div><button><i class="far fa-eye"></i> Demo</button></div>
+            <div><button><i class="fas fa-code"></i> Code</button></div>
           </div>
         </div>
       </div>
-      <div type="slide" project="ascension">
-        <div type="container">
-          <img
-            type="mobile"
-            src="public/images/ascension/mobile1-min.JPG"
-            alt=""
-          />
-          <img
-            type="desktop"
-            src="public/images/ascension/desktop-min.JPG"
-            alt=""
-          />
-          <img
-            type="tablet"
-            src="public/images/ascension/tablet-min.JPG"
-            alt=""
-          />
-          <div type="overlay"><button type="collapse">More Info</button></div>
+      <div type="uncollapsed">
+        <img type="desktop" src="public/images/airplayer/desktop-min.JPG" alt="" />
+        <img type="tablet" src="public/images/airplayer/tablet-min.JPG" alt="" />
+        <div type="overlay"><button type="collapse">More Info</button></div>
+      </div>
+    </div>
+    <div type="slide" project="mosaicify">
+      <div type="collapsed">
+        <div type="carousel">
+          <img type="mobile" src="public/images/mosaicify/mobile1-min.JPG" alt="" />
+          <img type="mobile" src="public/images/mosaicify/mobile2-min.JPG" alt="" />
+          <img type="mobile" src="public/images/mosaicify/mobile3-min.JPG" alt="" />
+          <img type="mobile" src="public/images/mosaicify/mobile4-min.JPG" alt="" />
         </div>
+        <div type="description">
+          <div type="textbox">
+            <h2>Mosaicify</h2>
+            <br>
+            <p>
+              <br>
+              <br>
+              <div type='tagContainer'>
+                <div type='tag'>Javascript</div>
+                <div type='tag'>CSS</div>
+                <div type='tag'>Image Manipulation</div>
+              </div>
+            </p>
+          </div>
+          <div type="buttonContainer">
+            <div><button><i class="far fa-eye"></i> Demo</button></div>
+            <div><button><i class="fas fa-code"></i> Code</button></div>
+          </div>
+        </div>
+      </div>
+      <div type="uncollapsed">
+        <img type="desktop" src="public/images/mosaicify/desktop-min.JPG" alt="" />
+        <img type="tablet" src="public/images/mosaicify/tablet-min.jpeg" alt="" />
+        <div type="overlay"><button type="collapse">More Info</button></div>
+      </div>
+    </div>
+    <div type="slide" project="notflix">
+      <div type="collapsed">
+        <div type="carousel">
+          <img type="mobile" src="public/images/notflix/mobile1-min.JPG" alt="" />
+          <img type="mobile" src="public/images/notflix/mobile2-min.JPG" alt="" />
+          <img type="mobile" src="public/images/notflix/mobile3-min.JPG" alt="" />
+          <img type="mobile" src="public/images/notflix/mobile4-min.JPG" alt="" />
 
+        </div>
         <div type="description">
-          <h2>Title</h2>
-          <p>
-            Text
-          </p>
+          <div type="textbox">
+            <h2>Notflix</h2>
+            <br>
+            <p>
+              <br>
+              <br>
+              <div type='tagContainer'>
+                <div type='tag'>React</div>
+                <div type='tag'>NodeJS</div>
+                <div type='tag'>MongoDB</div>
+                <div type='tag'>Auth0</div>
+                <div type='tag'>Youtube Web API</div>
+                <div type='tag'>Youtube Player API</div>
+                <div type='tag'>MovieDB API</div>
+              </div>
+            </p>
+          </div>
           <div type="buttonContainer">
-            <div><button>View Code</button></div>
-            <div><button>Visit Site</button></div>
+            <div><button><i class="far fa-eye"></i> Demo</button></div>
+            <div><button><i class="fas fa-code"></i> Code</button></div>
           </div>
         </div>
       </div>
-      <div type="slide" project="gitview">
-        <div type="container">
-          <img
-            type="mobile"
-            src="public/images/gitview/mobile1-min.JPG"
-            alt=""
-          />
-          <img
-            type="desktop"
-            src="public/images/gitview/desktop-min.JPG"
-            alt=""
-          />
-          <img type="tablet" src="public/images/gitview/tablet.JPG" alt="" />
-          <div type="overlay"><button type="collapse">More Info</button></div>
-        </div>
+      <div type="uncollapsed">
+        <img type="desktop" src="public/images/notflix/desktop-min.JPG" alt="" />
+        <img type="tablet" src="public/images/notflix/tablet-min.JPG" alt="" />
+        <div type="overlay"><button type="collapse">More Info</button></div>
+      </div>
+    </div>
+    <div type="slide" project="ascension">
 
+      <div type="collapsed">
+        <div type="carousel">
+          <img type="mobile" src="public/images/ascension/mobile1-min.JPG" alt="" />
+          <img type="mobile" src="public/images/ascension/mobile2-min.JPG" alt="" />
+          <img type="mobile" src="public/images/ascension/mobile3-min.JPG" alt="" />
+          <img type="mobile" src="public/images/ascension/mobile4-min.JPG" alt="" />
+
+        </div>
         <div type="description">
-          <h2>Title</h2>
-          <p>
-            Text
-          </p>
+          <div type="textbox">
+            <h2>World of Wacraft Ascension Talent Calculator</h2>
+            <br>
+            <p>
+              <br>
+              <br>
+              <div type='tagContainer'>
+                <div type='tag'>Javascript</div>
+                <div type='tag'>CSS</div>
+                <div type='tag'>Responsive Design</div>
+                <div type='tag'>DOM</div>
+              </div>
+            </p>
+          </div>
           <div type="buttonContainer">
-            <div><button>View Code</button></div>
-            <div><button>Visit Site</button></div>
+            <div><button><i class="far fa-eye"></i> Demo</button></div>
+            <div><button><i class="fas fa-code"></i> Code</button></div>
           </div>
         </div>
       </div>
-      <div type="slide" project="chess">
-        <div type="container">
+      <div type="uncollapsed">
+        <img type="desktop" src="public/images/ascension/desktop-min.JPG" alt="" />
+        <img type="tablet" src="public/images/ascension/tablet-min.JPG" alt="" />
+        <div type="overlay"><button type="collapse">More Info</button></div>
+      </div>
+    </div>
+    <div type="slide" project="gitview">
+
+      <div type="collapsed">
+        <div type="carousel">
+          <img type="mobile" src="public/images/gitview/mobile1-min.JPG" alt="" />
+          <img type="mobile" src="public/images/gitview/mobile2-min.JPG" alt="" />
+          <img type="mobile" src="public/images/gitview/mobile3-min.JPG" alt="" />
+          <img type="mobile" src="public/images/gitview/mobile4-min.JPG" alt="" />
+        </div>
+        <div type="description">
+          <div type="textbox">
+            <h2>Gitview</h2>
+            <br>
+            <p>
+              <br>
+              <br>
+              <div type='tagContainer'>
+                <div type='tag'>Javascript</div>
+                <div type='tag'>ES6</div>
+                <div type='tag'>Bootstrap</div>
+                <div type='tag'>Github API</div>
+              </div>
+            </p>
+          </div>
+          <div type="buttonContainer">
+            <div><button><i class="far fa-eye"></i> Demo</button></div>
+            <div><button><i class="fas fa-code"></i> Code</button></div>
+          </div>
+        </div>
+      </div>
+      <div type="uncollapsed">
+        <img type="desktop" src="public/images/gitview/desktop-min.JPG" alt="" />
+        <img type="tablet" src="public/images/gitview/tablet.JPG" alt="" />
+        <div type="overlay"><button type="collapse">More Info</button></div>
+      </div>
+    </div>
+    <div type="slide" project="chess">
+
+      <div type="collapsed">
+        <div type="carousel">
           <img type="mobile" src="public/images/chess/tablet-min.JPG" alt="" />
-          <img
-            type="desktop"
-            src="public/images/chess/desktop-min.JPG"
-            alt=""
-          />
-          <img type="tablet" src="public/images/chess/tablet-min.JPG" alt="" />
-          <div type="overlay"><button type="collapse">More Info</button></div>
         </div>
-
         <div type="description">
-          <h2>Title</h2>
-          <p>
-            Text
-          </p>
+          <div type="textbox">
+            <h2>Chess</h2>
+            <br>
+            <p>
+              <br>
+              <br>
+              <div type='tagContainer'>
+                <div type='tag'>Javascript</div>
+                <div type='tag'>HTML5 Canvas</div>
+              </div>
+            </p>
+          </div>
           <div type="buttonContainer">
-            <div><button>View Code</button></div>
-            <div><button>Visit Site</button></div>
+            <div><button><i class="far fa-eye"></i> Demo</button></div>
+            <div><button><i class="fas fa-code"></i> Code</button></div>
           </div>
         </div>
       </div>
-      <div type="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
+      <div type="uncollapsed">
+        <img type="desktop" src="public/images/chess/desktop-min.JPG" alt="" />
+        <img type="tablet" src="public/images/chess/tablet-min.JPG" alt="" />
+        <div type="overlay"><button type="collapse">More Info</button></div>
       </div>
-    </main>
+    </div>
+    <div type="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </main>
 
-    <script src="/src/main.js"></script>
-  </body>
+  <script src="/src/main.js"></script>
+</body>
+
 </html>

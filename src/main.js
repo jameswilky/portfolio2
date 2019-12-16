@@ -32,8 +32,7 @@ const Project = function (name) {
     const mobileImage = slide && slide.querySelector("[type=mobile]");
     const images = slide && slide.querySelectorAll("[type=mobile]");
     const startCarousel = () => {
-        console.log(images);
-        if (mobileImage && name !== "chess" && images) {
+        if (mobileImage && images) {
             const showImage = (i) => {
                 images.forEach((image, j) => {
                     if (i === j)
@@ -69,8 +68,6 @@ const Project = function (name) {
         if (thumbnail) {
             thumbnail.addEventListener("click", e => {
                 if (slide) {
-                    // Check if we are hovering over collapsed slide
-                    cleanUpText(slide);
                     // Remove collapsed class from all slides
                     const slides = document.querySelectorAll("[type=slide]");
                     slides.forEach(slide => slide.classList.remove("collapsed"));
@@ -86,22 +83,13 @@ const Project = function (name) {
         if (collapseButton) {
             collapseButton.addEventListener("click", e => {
                 if (slide) {
-                    const desktopImage = slide.querySelector("img[type=desktop]");
-                    if (desktopImage) {
-                        desktopImage.classList.toggle("show");
-                        console.log(desktopImage);
-                    }
-                    setTimeout(() => {
-                        slide.classList.add("collapsed");
-                    }, 500);
-                    setTimeout(() => {
-                        startCarousel();
-                    }, 1000);
+                    slide.classList.add("collapsed");
                 }
             });
         }
+        startCarousel();
     };
-    // init();
+    init();
     return {
         name,
         slide,
@@ -118,32 +106,29 @@ const state = {
     selected: { slide: null, thumbnail: null },
     select: function (slide, thumbnail) {
         if (this.selected.slide && this.selected.thumbnail) {
-            this.selected.slide.classList.remove("show");
-            this.selected.slide.classList.add("hide");
+            this.selected.slide.classList.toggle("show");
             this.selected.thumbnail.classList.remove("show");
             this.selected.thumbnail.classList.add("hide");
         }
         this.selected.slide = slide;
         this.selected.thumbnail = thumbnail;
         if (this.selected.slide && this.selected.thumbnail) {
-            this.selected.slide.classList.remove("hide");
-            this.selected.slide.classList.add("show");
+            this.selected.slide.classList.toggle("show");
             this.selected.thumbnail.classList.remove("hide");
             this.selected.thumbnail.classList.add("show");
         }
     }
 };
 // Hide all when resizing
-window.addEventListener("resize", () => {
-    const body = document.querySelector("body");
-    if (body) {
-        body.classList.add("hide");
-        setTimeout(() => {
-            body.classList.remove("hide");
-        }, 500);
-    }
-});
-// if (projects[0]) {
-//   state.select(projects[0].slide, projects[0].thumbnail);
-// }
-// TODO remove slider timer after uncollapse
+// window.addEventListener("resize", () => {
+//   const body: HTMLElement | null = document.querySelector("body");
+//   if (body) {
+//     body.classList.add("hide");
+//     setTimeout(() => {
+//       body.classList.remove("hide");
+//     }, 500);
+//   }
+// });
+if (projects[0]) {
+    state.select(projects[0].slide, projects[0].thumbnail);
+}
