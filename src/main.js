@@ -5,8 +5,8 @@ var ProjectNames;
     ProjectNames["Airplayer"] = "airplayer";
     ProjectNames["Mosaicify"] = "mosaicify";
     ProjectNames["Notflix"] = "notflix";
-    ProjectNames["Ascension"] = "ascension";
     ProjectNames["Gitview"] = "gitview";
+    ProjectNames["Ascension"] = "ascension";
     ProjectNames["Chess"] = "chess";
 })(ProjectNames || (ProjectNames = {}));
 //Add Sidebar scroll events for mobile

@@ -1,40 +1,25 @@
 @import "../variables//variables.scss";
-body {
-  background: linear-gradient(to bottom, #9d50bb, #6e48aa);
-  display: grid;
-  overflow: hidden;
-  grid-template-columns: 180px 1fr;
-  grid-template-rows: 1fr;
-  height: 100vh;
 
-  [type="sidebar"] {
-    background: $transparentBlack;
-    display: grid;
-    grid-template-rows: 1fr;
-  }
-}
 
-ul[type="thumbnailList"] > li {
+ul[type="thumbnailList"]>li {
   &[project="airplayer"] {
     background: linear-gradient(to top left, #f2b693, #f2a2b0);
   }
 
   &[project="mosaicify"] {
-    background: linear-gradient(
-      to right bottom,
-      #d16ba5,
-      #c777b9,
-      #ba83ca,
-      #aa8fd8,
-      #9a9ae1,
-      #8aa7ec,
-      #79b3f4,
-      #69bff8,
-      #52cffe,
-      #41dfff,
-      #46eefa,
-      #5ffbf1
-    );
+    background: linear-gradient(to right bottom,
+        #d16ba5,
+        #c777b9,
+        #ba83ca,
+        #aa8fd8,
+        #9a9ae1,
+        #8aa7ec,
+        #79b3f4,
+        #69bff8,
+        #52cffe,
+        #41dfff,
+        #46eefa,
+        #5ffbf1);
   }
 
   &[project="notflix"] {
@@ -101,21 +86,24 @@ div[type="carousel"] ul {
   font-weight: 900;
 
   &::after {
-    content: "" attr(project) "";
+    content: ""attr(project) "";
     text-transform: capitalize;
     font-size: 3.8vh;
   }
+
   // On Tablet only
   @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
     &::after {
-      content: "" attr(abrev) "";
+      content: ""attr(abrev) "";
       font-size: 5vh;
     }
+
     margin: 0 10px;
   }
 
   opacity: 0.4;
   box-shadow: 5px 5px $transparentBlack2;
+
   //mobile
   @media (max-aspect-ratio: 1/1) {
     opacity: 1;
@@ -125,10 +113,12 @@ div[type="carousel"] ul {
   &:hover {
     transform: scale(1.25);
     box-shadow: none;
+
     // On Tablet
     @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
       transform: scale(1.75);
     }
+
     //mobile
     @media (max-aspect-ratio: 1/1) {
       transform: scale(1);
@@ -141,6 +131,7 @@ div[type="carousel"] ul {
 
   opacity: 1;
   transform: scale(1.25);
+
   // On Tablet
   @media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 5/3) {
     transform: scale(1.75);

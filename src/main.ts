@@ -3,8 +3,8 @@ enum ProjectNames {
   Airplayer = "airplayer",
   Mosaicify = "mosaicify",
   Notflix = "notflix",
-  Ascension = "ascension",
   Gitview = "gitview",
+  Ascension = "ascension",
   Chess = "chess"
 }
 

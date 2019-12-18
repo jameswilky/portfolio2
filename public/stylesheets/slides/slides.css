@@ -160,8 +160,8 @@ div[type=slide] > div[type=collapsed] div[type=description] div[type=textbox] h2
   text-align: center;
   padding-bottom: 10px;
 }
-div[type=slide] > div[type=collapsed] div[type=description] div[type=textbox] div[type=slide] > div[type=collapsed] div[type=description] div[type=textbox] p {
-  color: rgba(255, 255, 255, 0.8);
+div[type=slide] > div[type=collapsed] div[type=description] div[type=textbox] p {
+  color: white;
 }
 div[type=slide] > div[type=collapsed] div[type=description] div[type=tagContainer] {
   margin: 10px -4px;
@@ -214,7 +214,9 @@ div[type=slide] > div[type=collapsed] div[type=description] div[type=tagContaine
   display: grid;
   justify-content: center;
 }
-[type=buttonContainer] div button {
+[type=buttonContainer] div a {
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
   pointer-events: initial;
   background: rgba(255, 255, 255, 0.8);
@@ -227,11 +229,9 @@ div[type=slide] > div[type=collapsed] div[type=description] div[type=tagContaine
   border-radius: 90px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
 }
-[type=buttonContainer] div button:hover {
+[type=buttonContainer] div a:hover {
   color: black;
   background: rgba(255, 255, 255, 0.4);
 }
-
-/* =================================*/
 
 /*# sourceMappingURL=slides.css.map */
