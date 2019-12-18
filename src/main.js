@@ -15,6 +15,7 @@ if (sidebar) {
     const menuOpenButton = document.querySelector("[type=hamburger]");
     if (menuOpenButton) {
         menuOpenButton.addEventListener("click", e => {
+            console.log(sidebar);
             sidebar.classList.add("show");
         });
     }
@@ -52,17 +53,6 @@ const Project = function (name) {
                 showImage(nextImage);
             }, 5000);
         }
-    };
-    const cleanUpText = (slide) => {
-        const collapsedItem = document.querySelector(".collapsed");
-        // Used for cleaning up text transition
-        if (collapsedItem &&
-            collapsedItem.getAttribute("project") === slide.getAttribute("project")) {
-            slide.classList.add("animationCleanUp");
-        }
-        setTimeout(() => {
-            slide.classList.remove("animationCleanUp");
-        }, 2000);
     };
     const init = () => {
         if (thumbnail) {
@@ -122,3 +112,10 @@ const state = {
 if (projects[0]) {
     state.select(projects[0].slide, projects[0].thumbnail);
 }
+// View projects button
+const button = document.querySelector("[type=view]");
+const body = document.querySelector("body");
+if (button && body)
+    button.addEventListener("click", () => {
+        body.classList.add("showLanding");
+    });

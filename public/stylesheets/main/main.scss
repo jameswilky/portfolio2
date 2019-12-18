@@ -25,70 +25,93 @@ html * {
   display: none;
 }
 
-
-
-
 html {
   height: 100vh;
 }
 
-
-
-.scroll-container {
-  overflow: auto;
-  scroll-snap-type: y mandatory;
-  height: 100vh;
+body {
   background: linear-gradient(to bottom, #9d50bb, #6e48aa);
 
 
+  &.showLanding {
+    & div[type="landing"] {
+      transform: translateY(-100%);
+
+
+    }
+
+    & div[type='projects'] {
+      opacity: 1;
+    }
+  }
 }
 
-.scroll-area {
-  scroll-snap-align: start;
-
-
-}
-
-// Top
-div[position='top'] {
-  background: $transparent4;
-  box-shadow: 6px 6px $transparentBlack;
-  margin: 20px;
-  height: calc(100vh - 40px);
-  scroll-margin: 20px;
-  width: calc(100% - 40px);
-
-  font-size: 1.75em;
+div[type='landing'] {
+  animation: fadeIn 1s;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(to bottom, #9d50bb, #6e48aa);
   text-align: center;
+  font-size: 5vw;
+  padding-top: 30vh;
+  color: white;
+  text-shadow: 3px 2px $transparentBlack4;
+  transition: transform ease-in-out 0.5s;
 
-  & [content='James'] {
-    transform: translate(0%, 0%)
+  ;
+
+  @media (min-width:900px) {
+    font-size: 42px;
   }
 
-  & [content='Wilkinson'] {}
-
-  & [content='Software'] {}
-
-  & [content='Developer'] {}
+  & h3 {
+    font-weight: normal;
+  }
 
 
 
+  & button {
+
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 90px;
+    margin-top: 15vh;
+    padding: 15px 30px;
+    color: #6e48aa;
+    box-shadow: 3px 4px $transparentBlack4;
+    cursor: pointer;
+    outline: none;
+
+    transition: all 0.2s;
+    animation: hover-me .5s infinite ease-in-out alternate;
+
+    &:hover {
+      color: white;
+      background: $transparent4;
+
+    }
+
+
+
+
+
+    @keyframes hover-me {
+      100% {
+        transform: translate3d(0, 5px, 0);
+      }
+    }
+  }
 
 
 
 }
 
-// Bottom
-div[position='bottom'] {
-  // background: blue;
-  margin: 20px;
-  height: calc(100vh - 40px);
-  scroll-margin: 20px;
-}
+div[type='projects'] {
+  opacity: 0;
 
-
-//Middle 
-div[position='middle'] {
   display: grid;
   overflow: hidden;
   grid-template-columns: 200px 1fr;
@@ -96,6 +119,7 @@ div[position='middle'] {
 
 
   height: calc(100vh);
+  transition: opacity 2s 0.7s !important;
 
   // On Tablet only
   @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
@@ -108,7 +132,7 @@ div[position='middle'] {
   }
 }
 
-div[position='middle'] [type="sidebar"] {
+[type='projects'] [type="sidebar"] {
   background: $transparent;
   display: grid;
   grid-template-rows: 1fr;
@@ -153,7 +177,8 @@ main {
 
   //Mobile only
   @media (max-aspect-ratio: 1/1) {
-    transform: translateX(0);
+
+    transform: translateX(0) !important;
   }
 
   [type="close"] {
@@ -208,6 +233,17 @@ main {
     transition-delay: none;
     color: $transparent;
   }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
 }
 
 /*    

@@ -30,6 +30,7 @@ if (sidebar) {
   );
   if (menuOpenButton) {
     menuOpenButton.addEventListener("click", e => {
+      console.log(sidebar);
       sidebar.classList.add("show");
     });
   }
@@ -76,23 +77,6 @@ const Project = function(name: string): IProject {
         showImage(nextImage);
       }, 5000);
     }
-  };
-  const cleanUpText = (slide: HTMLElement) => {
-    const collapsedItem: HTMLElement | null = document.querySelector(
-      ".collapsed"
-    );
-
-    // Used for cleaning up text transition
-    if (
-      collapsedItem &&
-      collapsedItem.getAttribute("project") === slide.getAttribute("project")
-    ) {
-      slide.classList.add("animationCleanUp");
-    }
-
-    setTimeout(() => {
-      slide.classList.remove("animationCleanUp");
-    }, 2000);
   };
 
   const init = () => {
@@ -162,3 +146,12 @@ const state: State = {
 if (projects[0]) {
   state.select(projects[0].slide, projects[0].thumbnail);
 }
+
+// View projects button
+
+const button: HTMLElement | null = document.querySelector("[type=view]");
+const body: HTMLElement | null = document.querySelector("body");
+if (button && body)
+  button.addEventListener("click", () => {
+    body.classList.add("showLanding");
+  });

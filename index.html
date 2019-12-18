@@ -15,351 +15,348 @@
 </head>
 
 <body>
-  <div class='scroll-container'>
-    <div position='top' class='scroll-area'>
-      <h1 content="James">James</h1>
-      <h1 content="Wilkinson">Wilkinson</h1>
-      <h1 content="Software">Software</h1>
-      <h1 content="Developer">Developer</h1>
-    </div>
-    <div position='middle' class='scroll-area'>
-      <section type="sidebar">
-        <div type="carousel">
-          <ul type="thumbnailList">
-            <li project="airplayer" type="thumbnail" abrev="A"></li>
-            <li project="mosaicify" type="thumbnail" abrev="M"></li>
-            <li project="notflix" type="thumbnail" abrev="N"></li>
-            <li project="gitview" type="thumbnail" abrev="G"></li>
-            <li project="ascension" type="thumbnail" abrev="A"></li>
-            <li project="chess" type="thumbnail" abrev="C"></li>
-          </ul>
-        </div>
-        <div type="close">
-          x
-        </div>
-      </section>
-      <main>
-        <div type="slide" project="airplayer">
+  <div type='projects'>
+    <section type="sidebar">
+      <div type="carousel">
+        <ul type="thumbnailList">
+          <li project="airplayer" type="thumbnail" abrev="A"></li>
+          <li project="mosaicify" type="thumbnail" abrev="M"></li>
+          <li project="notflix" type="thumbnail" abrev="N"></li>
+          <li project="gitview" type="thumbnail" abrev="G"></li>
+          <li project="ascension" type="thumbnail" abrev="A"></li>
+          <li project="chess" type="thumbnail" abrev="C"></li>
+        </ul>
+      </div>
+      <div type="close">
+        x
+      </div>
+    </section>
+    <main>
+      <div type="slide" project="airplayer">
 
-          <div type="collapsed">
-            <div type="carousel">
-              <img type="mobile" src="public/images/airplayer/mobile1-min.JPG" alt="" />
-              <img type="mobile" src="public/images/airplayer/mobile2-min.JPG" alt="" />
-              <img type="mobile" src="public/images/airplayer/mobile3-min.JPG" alt="" />
-              <img type="mobile" src="public/images/airplayer/mobile4-min.JPG" alt="" />
-              <img type="mobile" src="public/images/airplayer/mobile5-min.JPG" alt="" />
+        <div type="collapsed">
+          <div type="carousel">
+            <img type="mobile" src="public/images/airplayer/mobile1-min.JPG" alt="" />
+            <img type="mobile" src="public/images/airplayer/mobile2-min.JPG" alt="" />
+            <img type="mobile" src="public/images/airplayer/mobile3-min.JPG" alt="" />
+            <img type="mobile" src="public/images/airplayer/mobile4-min.JPG" alt="" />
+            <img type="mobile" src="public/images/airplayer/mobile5-min.JPG" alt="" />
 
-            </div>
-            <div type="description">
-              <div type="textbox">
-                <h2>Airplayer</h2>
-                <p>
-                  Airplayer is a music player that allows multiple users to
-                  collaboratively control which music is played. Using the Spotify Web
-                  API and Spotify Web playback API, users can create and join ‘rooms’
-                  which allow users to search for tracks on Spotify, and add them to a
-                  playlist that is visible and mutable to all users in the room, and
-                  can be played within the browser. <br /><br />The front end was
-                  created using React, with and the backend was created using NodeJS,
-                  MongoDB, WebSockets and contains over 100 unit test cases. It’s
-                  quite a large project, with a more thorough technical explanation
-                  detailed within the readme on GitHub. This is also a project I am
-                  actively working on and therefore still contains some issues, most
-                  of which can typically be fixed by refreshing the page.
-                  <br />
-                  <br />
-                  After fixing these issues, my plan is to add a feature that will
-                  recommend tracks based on the tracks that are commonly listened to
-                  by users in the room, as well as using Spotify’s recommendation API
-                  to find new tracks based on the listening habits of users in the
-                  room. I also plan on creating a native version using React Native
-                  as the Spotify Webplayback API is not supported on mobile.
-
-                  <br>
-                  <br>
-                  <div type='tagContainer'>
-                    <div type='tag'><i class="fab fa-react"></i> React</div>
-                    <div type='tag'><i class="fab fa-css3-alt"></i> Styled Components</div>
-                    <div type='tag'><i class="fab fa-node"></i> NodeJS</div>
-                    <div type='tag'><i class="fas fa-leaf"></i> MongoDB</div>
-                    <div type='tag'><i class="fas fa-plug"></i> WebSockets</div>
-                    <div type='tag'><i class="fab fa-spotify"></i> Spotify Web API</div>
-                    <div type='tag'><i class="fas fa-vial"></i> Jest</div>
-                    <div type='tag'><i class="far fa-id-card"></i> Authentication</div>
-
-                  </div>
-                </p>
-              </div>
-              <div type="buttonContainer">
-                <div><a href="https://airplayer.herokuapp.com/"><i class="far fa-eye"></i> Demo</a></div>
-                <div><a href="https://github.com/jameswilky/airplayer"><i class="fas fa-code"></i> Code</a></div>
-              </div>
-            </div>
           </div>
-          <div type="uncollapsed">
-            <img type="desktop" src="public/images/airplayer/desktop-min.JPG" alt="" />
-            <img type="tablet" src="public/images/airplayer/tablet-min.JPG" alt="" />
-            <div type="overlay"><button type="collapse">More info</button></div>
-          </div>
+          <div type="description">
+            <div type="textbox">
+              <h2>Airplayer</h2>
+              <p>
+                Airplayer is a music player that allows multiple users to
+                collaboratively control which music is played. Using the Spotify Web
+                API and Spotify Web playback API, users can create and join ‘rooms’
+                which allow users to search for tracks on Spotify, and add them to a
+                playlist that is visible and mutable to all users in the room, and
+                can be played within the browser. <br /><br />The front end was
+                created using React, with and the backend was created using NodeJS,
+                MongoDB, WebSockets and contains over 100 unit test cases. It’s
+                quite a large project, with a more thorough technical explanation
+                detailed within the readme on GitHub. This is also a project I am
+                actively working on and therefore still contains some issues, most
+                of which can typically be fixed by refreshing the page.
+                <br />
+                <br />
+                After fixing these issues, my plan is to add a feature that will
+                recommend tracks based on the tracks that are commonly listened to
+                by users in the room, as well as using Spotify’s recommendation API
+                to find new tracks based on the listening habits of users in the
+                room. I also plan on creating a native version using React Native
+                as the Spotify Webplayback API is not supported on mobile.
 
-        </div>
-        <div type="slide" project="mosaicify">
-          <div type="collapsed">
-            <div type="carousel">
-              <img type="mobile" src="public/images/mosaicify/mobile1-min.JPG" alt="" />
-              <img type="mobile" src="public/images/mosaicify/mobile2-min.JPG" alt="" />
-              <img type="mobile" src="public/images/mosaicify/mobile3-min.JPG" alt="" />
-              <img type="mobile" src="public/images/mosaicify/mobile4-min.JPG" alt="" />
-            </div>
-            <div type="description">
-              <div type="textbox">
-                <h2>Mosaicify</h2>
-                <p>
-                  Mosaicify turns images into a mosaic composed of other images. Users can upload a file and search for
-                  images using the Pixabay API to turn them into a mosaic of those images, as well as manipulate few
-                  settings that
-                  determine the quality of the image. Check the readme for a more technical explanation of the project.
-                  <br>
-                  <br>
-                  For me this project was mostly a test of speed, as I aimed to spend no more than a week creating it.
-                  During this project I incorporated some functional programming concepts and became much more
-                  comfortable
-                  handling asynchronous code using promises, as well as learning about image manipulation.
-                  <br>
-                  <br>
-                  <div type='tagContainer'>
-                    <div type='tag'><i class="fab fa-js"></i> Javascript</div>
-                    <div type='tag'><i class="fab fa-css3-alt"></i> CSS</div>
-                    <div type='tag'><i class="far fa-images"></i> Image Manipulation</div>
-                    <div type='tag'><i class="fas fa-code"></i> Promises</div>
-                    <div type='tag'><i class="far fa-file-image"></i> Pixabay API</div>
-
-
-                  </div>
-                </p>
-              </div>
-              <div type="buttonContainer">
-                <div><a href="https://jameswilky.github.io/mosaicify/"><i class="far fa-eye"></i> Demo</a></div>
-                <div><a href="https://github.com/jameswilky/mosaicify"><i class="fas fa-code"></i> Code</a></div>
-              </div>
-            </div>
-          </div>
-          <div type="uncollapsed">
-            <img type="desktop" src="public/images/mosaicify/desktop-min.JPG" alt="" />
-            <img type="tablet" src="public/images/mosaicify/tablet-min.jpeg" alt="" />
-            <div type="overlay"><button type="collapse">More info</button></div>
-          </div>
-        </div>
-        <div type="slide" project="notflix">
-          <div type="collapsed">
-            <div type="carousel">
-              <img type="mobile" src="public/images/notflix/mobile1-min.JPG" alt="" />
-              <img type="mobile" src="public/images/notflix/mobile2-min.JPG" alt="" />
-              <img type="mobile" src="public/images/notflix/mobile3-min.JPG" alt="" />
-              <img type="mobile" src="public/images/notflix/mobile4-min.JPG" alt="" />
-
-            </div>
-            <div type="description">
-              <div type="textbox">
-                <h2>Notflix</h2>
                 <br>
-                <p>
-                  Notflix is a Netflix clone created with React, NodeJS and MongoDB. Instead of using real movies, I
-                  recreated the front end and used movie trailers from YouTube. Google are not very generous with their
-                  free
-                  API calls, therefore I only have around 200 trailers available.
-                  <br><br>
-                  This was my first React project and contains full CRUD functionality, authentication, responsive
-                  design
-                  for all screen sizes, as well as integration with the MovieDB API, Youtube Web API and Youtube
-                  Playback
-                  API.
-
-                  <br>
-                  <br>
-                  <div type='tagContainer'>
-                    <div type='tag'><i class="fab fa-react"></i> React</div>
-                    <div type='tag'><i class="fab fa-node"></i> NodeJS</div>
-                    <div type='tag'><i class="fas fa-leaf"></i> MongoDB</div>
-                    <div type='tag'><i class="far fa-id-card"></i> Auth0</div>
-                    <div type='tag'><i class="fab fa-youtube"></i> Youtube Web API</div>
-                    <div type='tag'><i class="fab fa-youtube-square"></i> Youtube Player API</div>
-                    <div type='tag'><i class="fas fa-film"></i> MovieDB API</div>
-                  </div>
-                </p>
-              </div>
-              <div type="buttonContainer">
-                <div><a href="https://notflix-app.herokuapp.com/"><i class="far fa-eye"></i> Demo</a></div>
-                <div><a href="https://github.com/jameswilky/notflix"><i class="fas fa-code"></i> Code</a></div>
-              </div>
-            </div>
-          </div>
-          <div type="uncollapsed">
-            <img type="desktop" src="public/images/notflix/desktop-min.JPG" alt="" />
-            <img type="tablet" src="public/images/notflix/tablet-min.JPG" alt="" />
-            <div type="overlay"><button type="collapse">More info</button></div>
-          </div>
-        </div>
-
-        <div type="slide" project="gitview">
-
-          <div type="collapsed">
-            <div type="carousel">
-              <img type="mobile" src="public/images/gitview/mobile1-min.JPG" alt="" />
-              <img type="mobile" src="public/images/gitview/mobile2-min.JPG" alt="" />
-              <img type="mobile" src="public/images/gitview/mobile3-min.JPG" alt="" />
-              <img type="mobile" src="public/images/gitview/mobile4-min.JPG" alt="" />
-            </div>
-            <div type="description">
-              <div type="textbox">
-                <h2>Gitview</h2>
                 <br>
-                <p>
-                  GitView is a solution for traversing image-dense GitHub repositories in a more user friendly way than
-                  it
-                  is handled on the GitHub website. To use the tool, simply copy and paste a public GitHub repository
-                  into
-                  the search bar.
-                  <br>
-                  <br>
-                  Below are a few links of some example repositories to test with:
-                  <br>
-                  <br>
-                  <ul>
-                    <li> https://github.com/Gethe/wow-ui-textures
-                    </li>
-                    <li> https://github.com/simple-icons/simple-icons
-                    </li>
-                    <li> https://github.com/akveo/eva-icons
-                    </li>
-                  </ul>
-                  <br>
+                <div type='tagContainer'>
+                  <div type='tag'><i class="fab fa-react"></i> React</div>
+                  <div type='tag'><i class="fab fa-css3-alt"></i> Styled Components</div>
+                  <div type='tag'><i class="fab fa-node"></i> NodeJS</div>
+                  <div type='tag'><i class="fas fa-leaf"></i> MongoDB</div>
+                  <div type='tag'><i class="fas fa-plug"></i> WebSockets</div>
+                  <div type='tag'><i class="fab fa-spotify"></i> Spotify Web API</div>
+                  <div type='tag'><i class="fas fa-vial"></i> Jest</div>
+                  <div type='tag'><i class="far fa-id-card"></i> Authentication</div>
 
-                  During this project I gained experience using various ES6+ features such as Classes, async Await as
-                  well
-                  as using the GitHub API.
-
-                  <br>
-                  <br>
-                  <div type='tagContainer'>
-                    <div type='tag'><i class="fab fa-js"></i> Javascript</div>
-                    <div type='tag'><i class="fab fa-css3-alt"></i> CSS</div>
-                    <div type='tag'> <i class="fab fa-node-js"></i> ES6</div>
-                    <div type='tag'><i class="fab fa-bootstrap"></i> Bootstrap</div>
-                    <div type='tag'><i class="fab fa-github"></i> Github API</div>
-                  </div>
-                </p>
-              </div>
-              <div type="buttonContainer">
-                <div><a href="https://jameswilky.github.io/gitview/"><i class="far fa-eye"></i> Demo</a></div>
-                <div><a href="https://github.com/jameswilky/gitview"><i class="fas fa-code"></i> Code</a></div>
-              </div>
-            </div>
-          </div>
-          <div type="uncollapsed">
-            <img type="desktop" src="public/images/gitview/desktop-min.JPG" alt="" />
-            <img type="tablet" src="public/images/gitview/tablet.JPG" alt="" />
-            <div type="overlay"><button type="collapse">More info</button></div>
-          </div>
-        </div>
-        <div type="slide" project="ascension">
-
-          <div type="collapsed">
-            <div type="carousel">
-              <img type="mobile" src="public/images/ascension/mobile1-min.JPG" alt="" />
-              <img type="mobile" src="public/images/ascension/mobile2-min.JPG" alt="" />
-              <img type="mobile" src="public/images/ascension/mobile3-min.JPG" alt="" />
-              <img type="mobile" src="public/images/ascension/mobile4-min.JPG" alt="" />
-
-            </div>
-            <div type="description">
-              <div type="textbox">
-                <h2>World of Wacraft Ascension Talent Calculator</h2>
-                <br>
-                <p>
-                  This project aimed to create a more mobile friendly experience for the World of Warcraft Private
-                  Server
-                  'Ascension' talent calculator, as the one provided on the official website was not responsive.
-                  <br><br>
-                  I created the front end using vanilla JavaScript and CSS Grid. The focus of this project was to learn
-                  how
-                  to manipulate the DOM, handle asynchronous code and create response design using a mobile first
-                  approach.
-                  I also learned a lot about the more complex parts of JavaScript, such as prototypal delegation,
-                  closures
-                  and ‘this’.
-                  <br><br>
-                  While this project doesn’t have a backend, I managed to figure out how API calls where being sent from
-                  the
-                  official version of the application servers , and pulled data for the tooltips and images from there.
-
-                  <br>
-                  <br>
-                  <div type='tagContainer'>
-                    <div type='tag'><i class="fab fa-js"></i> Javascript</div>
-                    <div type='tag'><i class="fab fa-css3-alt"></i> CSS</div>
-                    <div type='tag'><i class="fas fa-expand-alt"></i> Responsive Design</div>
-                    <div type='tag'><i class="fas fa-network-wired"></i> DOM</div>
-                  </div>
-                </p>
-              </div>
-              <div type="buttonContainer">
-                <div><a href="https://jameswilky.github.io/ascension-talent-calculator/"><i class="far fa-eye"></i>
-                    Demo</a>
                 </div>
-                <div><a href="https://github.com/jameswilky/ascension-talent-calculator"><i class="fas fa-code"></i>
-                    Code</a></div>
-              </div>
+              </p>
+            </div>
+            <div type="buttonContainer">
+              <div><a href="https://airplayer.herokuapp.com/"><i class="far fa-eye"></i> Demo</a></div>
+              <div><a href="https://github.com/jameswilky/airplayer"><i class="fas fa-code"></i> Code</a></div>
             </div>
           </div>
-          <div type="uncollapsed">
-            <img type="desktop" src="public/images/ascension/desktop-min.JPG" alt="" />
-            <img type="tablet" src="public/images/ascension/tablet-min.JPG" alt="" />
-            <div type="overlay"><button type="collapse">More info</button></div>
-          </div>
         </div>
-        <div type="slide" project="chess">
+        <div type="uncollapsed">
+          <img type="desktop" src="public/images/airplayer/desktop-min.JPG" alt="" />
+          <img type="tablet" src="public/images/airplayer/tablet-min.JPG" alt="" />
+          <div type="overlay"><button type="collapse">More info</button></div>
+        </div>
 
-          <div type="collapsed">
-            <div type="carousel">
-              <img type="mobile" src="public/images/chess/tablet-min.JPG" alt="" />
-            </div>
-            <div type="description">
-              <div type="textbox">
-                <h2>Chess</h2>
+      </div>
+      <div type="slide" project="mosaicify">
+        <div type="collapsed">
+          <div type="carousel">
+            <img type="mobile" src="public/images/mosaicify/mobile1-min.JPG" alt="" />
+            <img type="mobile" src="public/images/mosaicify/mobile2-min.JPG" alt="" />
+            <img type="mobile" src="public/images/mosaicify/mobile3-min.JPG" alt="" />
+            <img type="mobile" src="public/images/mosaicify/mobile4-min.JPG" alt="" />
+          </div>
+          <div type="description">
+            <div type="textbox">
+              <h2>Mosaicify</h2>
+              <p>
+                Mosaicify turns images into a mosaic composed of other images. Users can upload a file and search for
+                images using the Pixabay API to turn them into a mosaic of those images, as well as manipulate few
+                settings that
+                determine the quality of the image. Check the readme for a more technical explanation of the project.
                 <br>
-                <p>
-                  This was my first project built in Javascript. While it may look similar to tutorials online, this was
-                  build from scratch using no libraries. During this project I became comfortable with using objects,
-                  closures and some OOP concepts. <br>
-                  <br>
-                  <div type='tagContainer'>
-                    <div type='tag'><i class="fab fa-js"></i> Javascript</div>
-                    <div type='tag'><i class="fas fa-paint-brush"></i> HTML5 Canvas</div>
-                  </div>
-                </p>
-              </div>
-              <div type="buttonContainer">
-                <div><a href="https://jameswilky.github.io/chess/"><i class="far fa-eye"></i> Demo</a></div>
-                <div><a href="https://github.com/jameswilky/chess"><i class="fas fa-code"></i> Code</a></div>
-              </div>
+                <br>
+                For me this project was mostly a test of speed, as I aimed to spend no more than a week creating it.
+                During this project I incorporated some functional programming concepts and became much more
+                comfortable
+                handling asynchronous code using promises, as well as learning about image manipulation.
+                <br>
+                <br>
+                <div type='tagContainer'>
+                  <div type='tag'><i class="fab fa-js"></i> Javascript</div>
+                  <div type='tag'><i class="fab fa-css3-alt"></i> CSS</div>
+                  <div type='tag'><i class="far fa-images"></i> Image Manipulation</div>
+                  <div type='tag'><i class="fas fa-code"></i> Promises</div>
+                  <div type='tag'><i class="far fa-file-image"></i> Pixabay API</div>
+
+
+                </div>
+              </p>
+            </div>
+            <div type="buttonContainer">
+              <div><a href="https://jameswilky.github.io/mosaicify/"><i class="far fa-eye"></i> Demo</a></div>
+              <div><a href="https://github.com/jameswilky/mosaicify"><i class="fas fa-code"></i> Code</a></div>
             </div>
           </div>
-          <div type="uncollapsed">
-            <img type="desktop" src="public/images/chess/desktop-min.JPG" alt="" />
-            <img type="tablet" src="public/images/chess/tablet-min.JPG" alt="" />
-            <div type="overlay"><button type="collapse">More info</button></div>
+        </div>
+        <div type="uncollapsed">
+          <img type="desktop" src="public/images/mosaicify/desktop-min.JPG" alt="" />
+          <img type="tablet" src="public/images/mosaicify/tablet-min.jpeg" alt="" />
+          <div type="overlay"><button type="collapse">More info</button></div>
+        </div>
+      </div>
+      <div type="slide" project="notflix">
+        <div type="collapsed">
+          <div type="carousel">
+            <img type="mobile" src="public/images/notflix/mobile1-min.JPG" alt="" />
+            <img type="mobile" src="public/images/notflix/mobile2-min.JPG" alt="" />
+            <img type="mobile" src="public/images/notflix/mobile3-min.JPG" alt="" />
+            <img type="mobile" src="public/images/notflix/mobile4-min.JPG" alt="" />
+
+          </div>
+          <div type="description">
+            <div type="textbox">
+              <h2>Notflix</h2>
+              <br>
+              <p>
+                Notflix is a Netflix clone created with React, NodeJS and MongoDB. Instead of using real movies, I
+                recreated the front end and used movie trailers from YouTube. Google are not very generous with their
+                free
+                API calls, therefore I only have around 200 trailers available.
+                <br><br>
+                This was my first React project and contains full CRUD functionality, authentication, responsive
+                design
+                for all screen sizes, as well as integration with the MovieDB API, Youtube Web API and Youtube
+                Playback
+                API.
+
+                <br>
+                <br>
+                <div type='tagContainer'>
+                  <div type='tag'><i class="fab fa-react"></i> React</div>
+                  <div type='tag'><i class="fab fa-node"></i> NodeJS</div>
+                  <div type='tag'><i class="fas fa-leaf"></i> MongoDB</div>
+                  <div type='tag'><i class="far fa-id-card"></i> Auth0</div>
+                  <div type='tag'><i class="fab fa-youtube"></i> Youtube Web API</div>
+                  <div type='tag'><i class="fab fa-youtube-square"></i> Youtube Player API</div>
+                  <div type='tag'><i class="fas fa-film"></i> MovieDB API</div>
+                </div>
+              </p>
+            </div>
+            <div type="buttonContainer">
+              <div><a href="https://notflix-app.herokuapp.com/"><i class="far fa-eye"></i> Demo</a></div>
+              <div><a href="https://github.com/jameswilky/notflix"><i class="fas fa-code"></i> Code</a></div>
+            </div>
           </div>
         </div>
-        <div type="hamburger">
-          <div></div>
-          <div></div>
-          <div></div>
+        <div type="uncollapsed">
+          <img type="desktop" src="public/images/notflix/desktop-min.JPG" alt="" />
+          <img type="tablet" src="public/images/notflix/tablet-min.JPG" alt="" />
+          <div type="overlay"><button type="collapse">More info</button></div>
         </div>
-      </main>
-    </div>
-    <div position='bottom' class='scroll-area'></div>
+      </div>
+
+      <div type="slide" project="gitview">
+
+        <div type="collapsed">
+          <div type="carousel">
+            <img type="mobile" src="public/images/gitview/mobile1-min.JPG" alt="" />
+            <img type="mobile" src="public/images/gitview/mobile2-min.JPG" alt="" />
+            <img type="mobile" src="public/images/gitview/mobile3-min.JPG" alt="" />
+            <img type="mobile" src="public/images/gitview/mobile4-min.JPG" alt="" />
+          </div>
+          <div type="description">
+            <div type="textbox">
+              <h2>Gitview</h2>
+              <br>
+              <p>
+                GitView is a solution for traversing image-dense GitHub repositories in a more user friendly way than
+                it
+                is handled on the GitHub website. To use the tool, simply copy and paste a public GitHub repository
+                into
+                the search bar.
+                <br>
+                <br>
+                Below are a few links of some example repositories to test with:
+                <br>
+                <br>
+                <ul>
+                  <li> https://github.com/Gethe/wow-ui-textures
+                  </li>
+                  <li> https://github.com/simple-icons/simple-icons
+                  </li>
+                  <li> https://github.com/akveo/eva-icons
+                  </li>
+                </ul>
+                <br>
+
+                During this project I gained experience using various ES6+ features such as Classes, async Await as
+                well
+                as using the GitHub API.
+
+                <br>
+                <br>
+                <div type='tagContainer'>
+                  <div type='tag'><i class="fab fa-js"></i> Javascript</div>
+                  <div type='tag'><i class="fab fa-css3-alt"></i> CSS</div>
+                  <div type='tag'> <i class="fab fa-node-js"></i> ES6</div>
+                  <div type='tag'><i class="fab fa-bootstrap"></i> Bootstrap</div>
+                  <div type='tag'><i class="fab fa-github"></i> Github API</div>
+                </div>
+              </p>
+            </div>
+            <div type="buttonContainer">
+              <div><a href="https://jameswilky.github.io/gitview/"><i class="far fa-eye"></i> Demo</a></div>
+              <div><a href="https://github.com/jameswilky/gitview"><i class="fas fa-code"></i> Code</a></div>
+            </div>
+          </div>
+        </div>
+        <div type="uncollapsed">
+          <img type="desktop" src="public/images/gitview/desktop-min.JPG" alt="" />
+          <img type="tablet" src="public/images/gitview/tablet.JPG" alt="" />
+          <div type="overlay"><button type="collapse">More info</button></div>
+        </div>
+      </div>
+      <div type="slide" project="ascension">
+
+        <div type="collapsed">
+          <div type="carousel">
+            <img type="mobile" src="public/images/ascension/mobile1-min.JPG" alt="" />
+            <img type="mobile" src="public/images/ascension/mobile2-min.JPG" alt="" />
+            <img type="mobile" src="public/images/ascension/mobile3-min.JPG" alt="" />
+            <img type="mobile" src="public/images/ascension/mobile4-min.JPG" alt="" />
+
+          </div>
+          <div type="description">
+            <div type="textbox">
+              <h2>World of Wacraft Ascension Talent Calculator</h2>
+              <br>
+              <p>
+                This project aimed to create a more mobile friendly experience for the World of Warcraft Private
+                Server
+                'Ascension' talent calculator, as the one provided on the official website was not responsive.
+                <br><br>
+                I created the front end using vanilla JavaScript and CSS Grid. The focus of this project was to learn
+                how
+                to manipulate the DOM, handle asynchronous code and create response design using a mobile first
+                approach.
+                I also learned a lot about the more complex parts of JavaScript, such as prototypal delegation,
+                closures
+                and ‘this’.
+                <br><br>
+                While this project doesn’t have a backend, I managed to figure out how API calls where being sent from
+                the
+                official version of the application servers , and pulled data for the tooltips and images from there.
+
+                <br>
+                <br>
+                <div type='tagContainer'>
+                  <div type='tag'><i class="fab fa-js"></i> Javascript</div>
+                  <div type='tag'><i class="fab fa-css3-alt"></i> CSS</div>
+                  <div type='tag'><i class="fas fa-expand-alt"></i> Responsive Design</div>
+                  <div type='tag'><i class="fas fa-network-wired"></i> DOM</div>
+                </div>
+              </p>
+            </div>
+            <div type="buttonContainer">
+              <div><a href="https://jameswilky.github.io/ascension-talent-calculator/"><i class="far fa-eye"></i>
+                  Demo</a>
+              </div>
+              <div><a href="https://github.com/jameswilky/ascension-talent-calculator"><i class="fas fa-code"></i>
+                  Code</a></div>
+            </div>
+          </div>
+        </div>
+        <div type="uncollapsed">
+          <img type="desktop" src="public/images/ascension/desktop-min.JPG" alt="" />
+          <img type="tablet" src="public/images/ascension/tablet-min.JPG" alt="" />
+          <div type="overlay"><button type="collapse">More info</button></div>
+        </div>
+      </div>
+      <div type="slide" project="chess">
+
+        <div type="collapsed">
+          <div type="carousel">
+            <img type="mobile" src="public/images/chess/tablet-min.JPG" alt="" />
+          </div>
+          <div type="description">
+            <div type="textbox">
+              <h2>Chess</h2>
+              <br>
+              <p>
+                This was my first project built in Javascript. While it may look similar to tutorials online, this was
+                build from scratch using no libraries. During this project I became comfortable with using objects,
+                closures and some OOP concepts. <br>
+                <br>
+                <div type='tagContainer'>
+                  <div type='tag'><i class="fab fa-js"></i> Javascript</div>
+                  <div type='tag'><i class="fas fa-paint-brush"></i> HTML5 Canvas</div>
+                </div>
+              </p>
+            </div>
+            <div type="buttonContainer">
+              <div><a href="https://jameswilky.github.io/chess/"><i class="far fa-eye"></i> Demo</a></div>
+              <div><a href="https://github.com/jameswilky/chess"><i class="fas fa-code"></i> Code</a></div>
+            </div>
+          </div>
+        </div>
+        <div type="uncollapsed">
+          <img type="desktop" src="public/images/chess/desktop-min.JPG" alt="" />
+          <img type="tablet" src="public/images/chess/tablet-min.JPG" alt="" />
+          <div type="overlay"><button type="collapse">More info</button></div>
+        </div>
+      </div>
+      <div type="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </main>
   </div>
+  <div type='landing'>
+    <h1>James Wilkinson</h1>
+    <h3>Software Developer</h3>
+    <button type='view'>View Projects</button>
+  </div>
+
 
 
 
