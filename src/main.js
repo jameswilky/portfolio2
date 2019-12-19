@@ -51,7 +51,7 @@ const Project = function (name) {
                 else
                     nextImage = 0;
                 showImage(nextImage);
-            }, 5000);
+            }, 4000);
         }
     };
     const init = () => {

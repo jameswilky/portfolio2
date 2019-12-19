@@ -75,7 +75,7 @@ const Project = function(name: string): IProject {
         if (nextImage < n) ++nextImage;
         else nextImage = 0;
         showImage(nextImage);
-      }, 5000);
+      }, 4000);
     }
   };
 

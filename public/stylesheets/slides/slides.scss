@@ -191,6 +191,14 @@ div[type="slide"]>div[type="collapsed"] {
       height: calc(100% - 20px);
       padding-bottom: 50px;
 
+      & p {
+        color: white;
+
+        & a {
+          color: #EEFFAA;
+        }
+      }
+
 
       // inner scroll on non mobile
       @media (min-aspect-ratio: 1/1) {
@@ -211,9 +219,7 @@ div[type="slide"]>div[type="collapsed"] {
         padding-bottom: 10px;
       }
 
-      & p {
-        color: white;
-      }
+
     }
 
     & div[type="tagContainer"] {
