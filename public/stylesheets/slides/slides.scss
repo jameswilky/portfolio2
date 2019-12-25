@@ -36,13 +36,7 @@ div[type="slide"] {
       opacity: 1;
       z-index: 2;
     }
-
-
-
-
   }
-
-
 
   // Tablet Only
   @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
@@ -60,11 +54,10 @@ div[type="slide"] {
       }
     }
   }
-
 }
 
 // uncollapsed slide
-div[type="slide"]>div[type="uncollapsed"] {
+div[type="slide"] > div[type="uncollapsed"] {
   position: relative;
   display: grid;
   justify-items: center;
@@ -123,12 +116,11 @@ div[type="slide"]>div[type="uncollapsed"] {
     display: none;
   }
 
-  // On mobile, auto apply the effects of collapsed 
+  // On mobile, auto apply the effects of collapsed
   @media (max-aspect-ratio: 1/1) {
     opacity: 0;
     transform: scale(0);
     z-index: 0;
-
 
     & div[type="collapsed"] {
       transition-delay: 0.7s;
@@ -139,7 +131,7 @@ div[type="slide"]>div[type="uncollapsed"] {
 }
 
 // collapsed slide
-div[type="slide"]>div[type="collapsed"] {
+div[type="slide"] > div[type="collapsed"] {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -149,13 +141,11 @@ div[type="slide"]>div[type="collapsed"] {
   opacity: 0;
   transition: opacity 2s;
 
-
   & [type="carousel"] {
     width: 100%;
     position: relative;
 
     & img[type="mobile"] {
-
       padding-left: 10px;
 
       max-width: 100%;
@@ -195,16 +185,17 @@ div[type="slide"]>div[type="collapsed"] {
         color: white;
 
         & a {
-          color: #EEFFAA;
+          color: #eeffaa;
         }
       }
 
-
       // inner scroll on non mobile
       @media (min-aspect-ratio: 1/1) {
-        -webkit-mask-image: linear-gradient(to bottom,
-            black 80%,
-            transparent 100%);
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          black 80%,
+          transparent 100%
+        );
         mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 
         overflow-y: auto;
@@ -218,8 +209,6 @@ div[type="slide"]>div[type="collapsed"] {
         text-align: center;
         padding-bottom: 10px;
       }
-
-
     }
 
     & div[type="tagContainer"] {
@@ -234,8 +223,6 @@ div[type="slide"]>div[type="collapsed"] {
         box-shadow: 4px 4px $transparentBlack3;
       }
     }
-
-
   }
 
   //Mobile
@@ -245,18 +232,15 @@ div[type="slide"]>div[type="collapsed"] {
     overflow: auto;
     grid-template-rows: unset;
 
-
     // Show as if collapsed when on mobile
     transition-delay: 0.7s;
     opacity: 1;
     z-index: 2;
 
-
-
     & [type="carousel"] {
       height: 100%;
 
-      & img[type='mobile'] {
+      & img[type="mobile"] {
         left: 50%;
         transform: translate(-50%, 0);
         right: unset;
@@ -270,16 +254,10 @@ div[type="slide"]>div[type="collapsed"] {
       top: 65vh;
       margin-bottom: 20px;
 
-
-
-
       & [type="buttonContainer"] {
-
         margin-bottom: 75px;
         margin-top: -75px;
       }
-
-
     }
   }
 }
@@ -314,6 +292,4 @@ div[type="slide"]>div[type="collapsed"] {
       }
     }
   }
-
-
 }

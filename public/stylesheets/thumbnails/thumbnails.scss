@@ -1,25 +1,26 @@
 @import "../variables//variables.scss";
 
-
-ul[type="thumbnailList"]>li {
+ul[type="thumbnailList"] > li {
   &[project="airplayer"] {
     background: linear-gradient(to top left, #f2b693, #f2a2b0);
   }
 
   &[project="mosaicify"] {
-    background: linear-gradient(to right bottom,
-        #d16ba5,
-        #c777b9,
-        #ba83ca,
-        #aa8fd8,
-        #9a9ae1,
-        #8aa7ec,
-        #79b3f4,
-        #69bff8,
-        #52cffe,
-        #41dfff,
-        #46eefa,
-        #5ffbf1);
+    background: linear-gradient(
+      to right bottom,
+      #d16ba5,
+      #c777b9,
+      #ba83ca,
+      #aa8fd8,
+      #9a9ae1,
+      #8aa7ec,
+      #79b3f4,
+      #69bff8,
+      #52cffe,
+      #41dfff,
+      #46eefa,
+      #5ffbf1
+    );
   }
 
   &[project="notflix"] {
@@ -86,7 +87,7 @@ div[type="carousel"] ul {
   font-weight: 900;
 
   &::after {
-    content: ""attr(project) "";
+    content: "" attr(project) "";
     text-transform: capitalize;
     font-size: 3.8vh;
   }
@@ -94,7 +95,7 @@ div[type="carousel"] ul {
   // On Tablet only
   @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/3) {
     &::after {
-      content: ""attr(abrev) "";
+      content: "" attr(abrev) "";
       font-size: 5vh;
     }
 
